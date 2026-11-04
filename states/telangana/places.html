@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Places to visit in Telangana | Southern Safari</title>
+    <link rel="stylesheet" href="../../assets/css/place-weather.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+        color: #17212b;
+        background: #f3f6f7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      header {
+        padding: 1rem max(1.5rem, calc((100% - 1100px) / 2));
+        background: #0a1e27;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+      }
+
+      .intro {
+        margin: 0 0 2rem;
+        color: #4a5961;
+      }
+
+      .places {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1.25rem;
+      }
+
+      article {
+        overflow: hidden;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 5px 18px #0a1e271a;
+      }
+
+      article img {
+        display: block;
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+
+      article h2,
+      article p {
+        margin: 0;
+        padding: 0.9rem 1rem 0;
+      }
+
+      article p {
+        padding-top: 0.4rem;
+        padding-bottom: 1rem;
+        color: #4a5961;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="../../home.html">Home</a>
+        <a href="index.html">Telangana</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="travel.html">Travel</a>
+        <a href="packages.html">Packages</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Places to visit in Telangana</h1>
+      <p class="intro">
+        Explore Telangana's heritage, historic cities, waterfalls, and lakes.
+      </p>
+      <section class="places" id="places" aria-label="Telangana destinations">
+        <article data-details="The Charminar is a historic monument in Hyderabad, built in 1591. Its four grand arches overlook the old city's markets and landmarks.">
+          <img src="assets/images/charminar.jpg" alt="Charminar in Hyderabad" />
+          <h2>Charminar</h2>
+          <p>Discover Hyderabad's landmark monument and its lively old city.</p>
+        </article>
+        <article data-details="Warangal is known for the Kakatiya-era Warangal Fort, the Thousand Pillar Temple, and the UNESCO-listed Ramappa Temple nearby.">
+          <img src="assets/images/warangal.jpg" alt="Historic Warangal" />
+          <h2>Warangal</h2>
+          <p>Visit the historic heartland of the Kakatiya dynasty.</p>
+        </article>
+        <article data-details="Medak is known for Medak Cathedral and its historic fort, set among the region's rocky countryside.">
+          <img src="assets/images/medak.jpg" alt="Medak" />
+          <h2>Medak</h2>
+          <p>Explore Medak's historic architecture and surrounding countryside.</p>
+        </article>
+        <article data-details="Pakhal Lake is a man-made lake beside a forest sanctuary, offering a quiet setting for nature and wildlife viewing.">
+          <img src="assets/images/pakhal.jpg" alt="Pakhal Lake" />
+          <h2>Pakhal Lake</h2>
+          <p>Enjoy the scenic lake and forest landscape near Warangal.</p>
+        </article>
+        <article data-details="Kuntala Waterfall lies in Adilabad district, surrounded by forest. Water flow is strongest during and after the monsoon.">
+          <img src="assets/images/kunthala.jpg" alt="Kuntala Waterfall" />
+          <h2>Kuntala Waterfall</h2>
+          <p>See one of Telangana's best-known waterfalls in the Adilabad region.</p>
+        </article>
+        <article data-details="Nagarjuna Sagar is a major Krishna River dam and reservoir, close to the archaeological site of Nagarjunakonda.">
+          <img src="assets/images/nagarjuna.jpg" alt="Nagarjuna Sagar" />
+          <h2>Nagarjuna Sagar</h2>
+          <p>Take in the reservoir, dam, and nearby historic sites.</p>
+        </article>
+      </section>
+    </main>
+    <script src="../../assets/js/place-weather.js"></script>
+</body>
+</html>

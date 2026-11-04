@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Trip Packages</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        header {
+            background-image: url('assets/images/hotels/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* Predefined Packages */
+        #predefined-packages {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .package-card {
+            background-color: #333333;
+            border-radius: 12px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .package-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .package-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .package-card ul li {
+            margin-bottom: 5px;
+        }
+
+        .package-card p {
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+
+        .package-card button {
+            background-color: #ff0099;
+            color: #1c1c1c;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .package-card button:hover {
+            background-color: #ff66b2;
+        }
+
+        /* Custom Package Builder */
+        #custom-package {
+            background-color: #333333;
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+        }
+
+        #custom-package-form {
+            text-align: left;
+        }
+
+        #places {
+            position: relative;
+            left: -200px;
+            width: 40%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            border: 1px solid #faf6f8;
+        }
+
+        #total-price {
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        #map {
+            margin-top: 20px;
+            height: 300px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border: 1px solid #585758;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Explore Kerala</h1>
+    <p>Find the best package or customize your own journey!</p>
+</header>
+
+<main>
+    <!-- Predefined Packages Section -->
+    <section id="predefined-packages">
+        <h2>Predefined Packages</h2>
+        <div class="grid-container">
+            <div class="package-card">
+                <h3><i class="fas fa-umbrella-beach"></i> 3-Day Kerala Tour</h3>
+                <ul>
+                    <li>Kochi</li>
+                    <li>Munnar</li>
+                    <li>Alleppey</li>
+                </ul>
+                <p><strong>Price:</strong> ₹15,000</p>
+                <button>Book Now</button>
+            </div>
+            <div class="package-card">
+                <h3><i class="fas fa-tree"></i> 5-Day Kerala Tour</h3>
+                <ul>
+                    <li>Kochi</li>
+                    <li>Munnar</li>
+                    <li>Thekkady</li>
+                    <li>Alleppey</li>
+                </ul>
+                <p><strong>Price:</strong> ₹25,000</p>
+                <button>Book Now</button>
+            </div>
+            <div class="package-card">
+                <h3><i class="fas fa-tree"></i> 5-Day Kerala Tour</h3>
+                <ul>
+                    <li>Kochi</li>
+                    <li>Munnar</li>
+                    <li>Thekkady</li>
+                    <li>Alleppey</li>
+                </ul>
+                <p><strong>Price:</strong> ₹25,000</p>
+                <button>Book Now</button>
+            </div>
+            <div class="package-card">
+                <h3><i class="fas fa-tree"></i> 5-Day Kerala Tour</h3>
+                <ul>
+                    <li>Kochi</li>
+                    <li>Munnar</li>
+                    <li>Thekkady</li>
+                    <li>Alleppey</li>
+                </ul>
+                <p><strong>Price:</strong> ₹25,000</p>
+                <button>Book Now</button>
+            </div>
+            <div class="package-card">
+                <h3><i class="fas fa-tree"></i> 5-Day Kerala Tour</h3>
+                <ul>
+                    <li>Kochi</li>
+                    <li>Munnar</li>
+                    <li>Thekkady</li>
+                    <li>Alleppey</li>
+                </ul>
+                <p><strong>Price:</strong> ₹25,000</p>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Package Builder Section -->
+    <section id="custom-package">
+        <h2>Customize Your Package</h2>
+        <form id="custom-package-form">
+            <label for="places">Choose Your Destinations:</label>
+            <select id="places" multiple>
+                <option value="Kochi" data-price="5000">Kochi</option>
+                <option value="Munnar" data-price="7000">Munnar</option>
+                <option value="Alleppey" data-price="6000">Alleppey</option>
+                <option value="Thekkady" data-price="8000">Thekkady</option>
+                <option value="Kovalam" data-price="5000">Kovalam</option>
+                <option value="Wayanad" data-price="7500">Wayanad</option>
+            </select>
+
+            <div id="selected-places"></div>
+            
+            <p>Total Price: ₹<span id="total-price">0</span></p>
+            <button type="button" onclick="calculatePrice()">Create Package</button>
+        </form>
+
+        <div id="map">
+            <div id="mapid" style="height: 100%; width: 100%;"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2024 Explore Kerala - The Land of Wonders</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    function calculatePrice() {
+        const places = document.querySelectorAll('#places option:checked');
+        let totalPrice = 0;
+        const selectedPlacesContainer = document.getElementById('selected-places');
+        selectedPlacesContainer.innerHTML = '';
+
+        places.forEach(place => {
+            const price = parseInt(place.getAttribute('data-price'));
+            totalPrice += price;
+
+            const placeName = place.textContent;
+            const placeElement = document.createElement('p');
+            placeElement.textContent = `${placeName} - ₹${price}`;
+            selectedPlacesContainer.appendChild(placeElement);
+        });
+
+        document.getElementById('total-price').textContent = totalPrice;
+    }
+
+    // Initialize the map
+    var map = L.map('mapid').setView([10.8505, 76.2711], 7); // Coordinates of Kerala
+
+    // Add a tile layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add marker functionality when destinations are selected
+    document.getElementById('places').addEventListener('change', function() {
+        map.eachLayer(function(layer) {
+            if (layer instanceof L.Marker) {
+                map.removeLayer(layer);
+            }
+        });
+
+        document.querySelectorAll('#places option:checked').forEach(option => {
+            const place = option.value;
+            let coordinates;
+
+            switch (place) {
+                case 'Kochi':
+                    coordinates = [9.9312, 76.2673];
+                    break;
+                case 'Munnar':
+                    coordinates = [10.0892, 77.0597];
+                    break;
+                case 'Alleppey':
+                    coordinates = [9.4981, 76.3388];
+                    break;
+                case 'Thekkady':
+                    coordinates = [9.5937, 77.1592];
+                    break;
+                case 'Kovalam':
+                    coordinates = [8.4021, 76.9780];
+                    break;
+                case 'Wayanad':
+                    coordinates = [11.6854, 76.1320];
+                    break;
+            }
+
+            if (coordinates) {
+                L.marker(coordinates).addTo(map)
+                    .bindPopup(`<b>${place}</b>`)
+                    .openPopup();
+            }
+        });
+    });
+</script>
+</body>
+</html>

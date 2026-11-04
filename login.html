@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body {
+            background-image: url('https://images.unsplash.com/photo-1622779100968-f38ad2954a0d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        h {
+            font-size: 25px;
+            text-align: center;
+            display: block;
+        }
+        .container {
+            position: relative;
+            height: 500px;
+            width: 420px;
+            background: transparent;
+            border: 2px solid rgba(225, 225, 225, .2);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+        }
+        .lore {
+            margin: 35px auto;
+            width: 220px;
+            text-align: center;
+            border-radius: 30px;
+            box-shadow: 0 0 20px 9px #ff61241f;
+            position: relative;
+            overflow: hidden;
+        }
+        .toggle1, .toggle {
+            cursor: pointer;
+            padding: 10px 30px;
+            background: transparent;
+            border: 2px solid transparent;
+            outline: none;
+        }
+        .toggle:hover, .toggle1:hover {
+            color: white;
+        }
+        #bn {
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: linear-gradient(to right, blue, lightblue);
+            border-radius: 30px;
+            transition: 0.5s;
+            z-index: 1;
+        }
+        .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 10px 40px; /* Extra padding for icon space */
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 14px;
+        }
+        .input-box input::placeholder {
+            color: white;
+        }
+        .input-box i {
+            position: absolute;
+            right: 0px; /* Adjust icon position */
+            top: 30%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 18px
+        }
+        .btn {
+            height: 45px;
+            width: 100%;
+            background: white;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+        .fr {
+            position: absolute;
+            width: 280px;
+            transition: 0.5s;
+        }
+        #login {
+            left: 90px;
+            z-index: 3;
+        }
+        #register {
+            left: 600px;
+            z-index: 3;
+        }
+        .back {
+            text-align: center;
+            margin: 10px;
+            width: 90px;
+            border-radius: 30px;
+            box-shadow: 0 0 20px 9px #ff61241f;
+            font-size: 20px;
+            top: -250px;
+            left: -280px;
+            position: relative;
+        }
+        .bbtn {
+            border: 0;
+            outline: 0;
+            background-color: transparent;
+            padding: 10px;
+        }
+        .bbtn:hover {
+            color: white;
+        }
+        /* Modal Styling */
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .role-btn {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: lightblue;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .role-btn:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Role Selection Modal -->
+    <div id="roleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select Role</h2>
+            <button class="role-btn" onclick="selectRole('admin')">Administrator</button>
+            <button class="role-btn" onclick="selectRole('user')">User</button>
+        </div>
+    </div>
+
+    <div class="back">
+        <button class="bbtn" onclick="window.location.href='home.html'">Back</button>
+    </div>
+
+    <div class="container">
+        <div class="lore">
+            <button class="toggle1" onclick="login()">Login</button>
+            <button class="toggle" onclick="register()">Register</button>
+            <div id="bn"></div>
+        </div>
+
+        <form id="login" class="fr" method="POST" method="POST" action="login.php">
+            <h2>Login</h2>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+                <i class='bx bxs-user-circle'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <input type="hidden" name="role" id="loginRole" value="">
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register" class="fr" method="POST" action="{% url 'register' %}">
+            <h2>Register</h2>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+                <i class='bx bxs-user-circle'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email ID" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <input type="hidden" name="role" id="registerRole" value="">
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        var loginForm = document.getElementById("login");
+        var registerForm = document.getElementById("register");
+        var btnSwitch = document.getElementById("bn");
+        var rememberedName = "";
+        try {
+            rememberedName = localStorage.getItem("southernSafariName") || "";
+        } catch (error) {
+            console.error("Could not read the saved traveler name.", error);
+        }
+
+        if (rememberedName) {
+            loginForm.elements.username.value = rememberedName;
+            registerForm.elements.username.value = rememberedName;
+        }
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = loginForm.elements.username.value.trim();
+
+            try {
+                localStorage.setItem("southernSafariName", username);
+            } catch (error) {
+                alert("Could not save your name in this browser.");
+                return;
+            }
+
+            window.location.href = "home.html";
+        });
+
+        registerForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = registerForm.elements.username.value.trim();
+
+            try {
+                localStorage.setItem("southernSafariName", username);
+            } catch (error) {
+                alert("Could not remember your name in this browser.");
+                return;
+            }
+
+            loginForm.elements.username.value = username;
+            register();
+            if (window.confirm("Sign-up is complete. Confirm this demo account on this device? This is not real email verification.")) {
+                alert("Demo verification complete. Welcome, " + username + "!");
+            } else {
+                alert("Your name is saved. You can finish demo verification later.");
+            }
+        });
+
+        function register() {
+            loginForm.style.left = "-400px";
+            registerForm.style.left = "100px";
+            btnSwitch.style.left = "110px";
+        }
+
+        function login() {
+            loginForm.style.left = "100px";
+            registerForm.style.left = "400px";
+            btnSwitch.style.left = "0px";
+        }
+
+        // Open the role selection modal on page load
+        window.onload = function() {
+            document.getElementById('roleModal').style.display = 'block';
+        };
+
+        function selectRole(role) {
+            document.getElementById('loginRole').value = role;
+            document.getElementById('registerRole').value = role;
+            closeModal();
+        }
+
+        function closeModal() {
+            document.getElementById('roleModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

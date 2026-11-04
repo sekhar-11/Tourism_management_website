@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: rgba(244, 10, 45, 0.986);
+  font-family: Arial;
+}
+p {
+  color: #00000001;
+}
+main {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+main {
+  width: 100%;
+  background: linear-gradient(
+      to top,
+      rgba(244, 240, 240, 0.603) 50%,
+      rgba(248, 247, 247, 0.685) 50%
+    ),
+    url(../assets/images/shared/site/n.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+p {
+  color: #00000001;
+}

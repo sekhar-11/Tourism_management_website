@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Andhra Tourist Places</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Outfit", sans-serif;
+      }
+      .all {
+        background-image: linear-gradient(rgba(52, 49, 65, 0.65));
+        background-color: #16161f;
+      }
+
+      body {
+        position: absolute;
+        lett: 0px;
+        height: 8000px;
+        max-width: 1500px;
+        max-height: 5000px;
+        margin: 0 auto;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      nav {
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.705);
+        z-index: 3;
+        backdrop-filter: blur(10px);
+      }
+      .form1 {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        border-radius: 40px;
+        padding: 10px;
+
+        margin-left: 10px;
+        background: white;
+        top: 10px;
+        width: 400px;
+        height: 20px;
+        left: 50%;
+      }
+      .r {
+        border-radius: 40px;
+        font-size: 14px;
+        height: 30px;
+        width: 90px;
+        padding: 5px 5px;
+        padding-bottom: 10px;
+        position: relative;
+        left: 0px;
+        border: none;
+        background-color: #f5168d;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+        color: #eee;
+      }
+      .r:hover {
+        background: linear-gradient(40deg, #e7e5e5, #292929);
+      }
+      .input {
+        border: none;
+        outline: 0;
+        width: 100%;
+        font-size: 16px;
+        padding-left: 10px;
+      }
+      .place {
+        color: #ddd;
+        border: black solid 0px;
+        width: 1000px;
+        padding: 10px;
+        margin: 100px;
+        border-radius: 12px;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.8s;
+      }
+      .place:hover {
+        transform: translateX(-20px);
+      }
+      .more-btn {
+        height: 30px;
+        width: 100px;
+        position: relative;
+        left: 510px;
+        top: -10px;
+
+        border-radius: 40px;
+        border: white;
+        cursor: pointer;
+        background: transparent;
+        transition: opacity 1.2s, transform 0.8s;
+        box-shadow: 3px 10px 13px rgba(0, 0, 0, 0.5);
+        color: #eee;
+      }
+
+      .more-btn:hover {
+        color: rgb(95, 94, 94);
+        opacity: 1;
+        transform: translateY(-8px);
+        box-shadow: 3px 0px 10px 5px #070707b2;
+      }
+      img {
+        border-radius: 10px;
+        margin-bottom: 2opx;
+      }
+      h2 {
+        position: relative;
+        left: 300px;
+        top: 60px;
+        margin-left: 20px;
+      }
+      .des0 {
+        margin-left: 20px;
+        position: relative;
+        left: 300px;
+        top: 80px;
+      }
+      .icon {
+        width: 200px;
+        float: left;
+        height: 70px;
+      }
+      .logo {
+        color: rgb(10, 243, 45);
+        font-size: 35px;
+        font-family: arial;
+        padding-left: 20px;
+        float: left;
+        padding-top: 10px;
+      }
+      .details {
+        display: none;
+      }
+      #Thiruvananthapuram .more-btn {
+        position: relative;
+        left: 520px;
+      }
+      #Pathanamthitta .more-btn {
+        position: relative;
+        left: 520px;
+      }
+      .menu {
+        width: 400px;
+        float: left;
+        height: 70px;
+      }
+      ul {
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul li {
+        list-style: none;
+        margin-left: 200px;
+        margin-top: 18px;
+        font-size: 16px;
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        font-family: Arial;
+        font-size: large;
+        font-weight: bold;
+        transition: 0.4s ease-in-out;
+      }
+      ul li a:hover {
+        color: #f5168d;
+      }
+
+      .explor {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Outfit", sans-serif;
+        gap: 20px;
+        position: relative;
+        left: -150px;
+      }
+      .name {
+        font-size: 80px;
+        color: rgba(153, 229, 31, 0.95);
+        font-weight: 600;
+        align-items: center;
+        top: 250px;
+        bottom: 250px;
+        align-content: center;
+        padding-bottom: 270px;
+        padding-top: 250px;
+        font-family: "Outfit", sans-serif;
+        float: inline-start;
+      }
+
+      main {
+        position: relative;
+        top: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+      main {
+        width: 100%;
+
+        background-position: center;
+        background-size: cover;
+      }
+      h1 {
+        font-size: 60px;
+        color: rgba(241, 245, 240, 0.719);
+        font-family: Arial;
+        float: center;
+        position: relative;
+        right: 10%;
+        margin-left: 200px;
+      }
+      hr {
+        width: 400px;
+        height: 2.5px;
+        border: none;
+        background-color: rgba(241, 245, 240, 0.719);
+        position: relative;
+        left: -330px;
+        border-radius: 3px;
+      }
+
+      footer {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: absolute;
+        bottom: 10px;
+        width: 97%;
+        height: 20px;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+      #footer {
+        position: relative;
+        padding: 30px 0 25px 0;
+        text-align: center;
+        width: 100%;
+        background: #222222;
+      }
+
+      #footer .social {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      #footer a {
+        color: #00ced1;
+      }
+
+      #footer a:hover {
+        color: #ffffff;
+      }
+
+      #footer .social a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+
+        padding: 5px 10px;
+        background: #00ced1;
+        color: #222222;
+        font-size: 20px;
+        border-radius: 30px;
+      }
+
+      #footer .social a:hover {
+        background: #ffffff;
+        color: #00ced1;
+      }
+
+      #footer ul {
+        margin: 0 0 10px 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      #footer ul li {
+        font-family: "Roboto Slab", serif;
+        font-weight: 400;
+        display: inline-block;
+        list-style-type: none;
+        padding: 0 10px 0 3px;
+        line-height: 15px;
+        border-right: 1px solid #ffffff;
+      }
+
+      #footer ul li:last-child {
+        border-right: none;
+      }
+
+      #footer p {
+        margin: 0;
+        font-size: 18px;
+      }
+      .social-media {
+        margin-top: 10px;
+      }
+
+      .social-media a {
+        color: white;
+        margin: 0 10px;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      .social-media a:hover {
+        color: #ddd;
+      }
+      .image-container {
+        position: absolute;
+        top: 60px;
+        left: 100px;
+        width: 80vw;
+        height: 60vh;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 400%; /* Adjust width based on the number of images */
+      }
+
+      .image-slider img {
+        width: 80vw;
+        height: 60vh;
+        object-fit: cover;
+      }
+
+      .controls {
+        position: absolute;
+        top: 300px;
+        left: 110px;
+        height: 60px;
+        width: 79.3%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .prev,
+      .next {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 15px;
+        pointer-events: auto;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background: #2b2e334f;
+        color: #6292f8;
+      }
+
+      .pagination {
+        position: absolute;
+        top: 450px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        background-color: grey;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dot.active {
+        background: #6292f8;
+        transform: scale(1.6);
+      }
+      .caption {
+        text-align: center;
+        justify-items: center;
+        color: #ffffff;
+        margin: 20px 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      .caption h2 {
+        position: absolute;
+        top: 200px;
+        left: 25%;
+        font-weight: 780;
+        font-size: 70px;
+        margin: 10px 0;
+        background: linear-gradient(
+          90deg,
+          #e63897,
+          #6292f8
+        ); /* Gradient background */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+        animation: glowing 1.5s infinite alternate;
+      }
+      .caption h2::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Behind the text */
+        background: linear-gradient(
+          90deg,
+          #e63897,
+          #6292f8
+        ); /* Outline color gradient */
+        border-radius: 5px; /* Rounded edges for the outline */
+        filter: blur(4px); /* Soft blur for the outline */
+        transform: scale(1.1); /* Slightly larger than the text */
+      }
+      .caption p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 10px auto;
+        line-height: 1.5;
+      }
+
+      .line {
+        width: 80%;
+        height: 2px;
+        background-color: #f05454;
+        margin: 10px auto;
+        position: relative;
+        display: inline-block;
+      }
+
+      .line::before,
+      .line::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: #f05454;
+        top: 0;
+      }
+
+      .line::before {
+        left: -60px;
+      }
+
+      .line::after {
+        right: -60px;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/place-weather.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">BACK</a></li>
+        <form class="form1" onsubmit="return false;">
+          <input
+            type="text"
+            placeholder="State Name"
+            class="input"
+            id="searchInput"
+          />
+          <button type="button" class="btn r" id="searchButton">Search</button>
+        </form>
+        <!--
+   
+          <li><a href="#Thrissur">Thrissur</a></li>
+          <li><a href="#Palakkad">Palakkad</a></li>
+          <li><a href="#Malappuram">Malappuram</a></li>
+          <li><a href="#Kozhikode">Kozhikode</a></li>
+          <li><a href="#Wayanad">Wayanad</a></li>
+          <li><a href="#Kannur">Kannur</a></li>
+          <li><a href="#Kasargod">Kasargod</a></li>-->
+      </ul>
+    </nav>
+
+    <div class="all">
+      <div class="image-container">
+        <div class="image-slider" id="slider">
+          <img src="../../assets/images/shared/places/photo1.jpg" alt="Image 1" />
+          <img src="../../assets/images/shared/places/photo2.jpg" alt="Image 2" />
+          <img src="../../assets/images/shared/places/photo3.jpg" alt="Image 3" />
+          <img src="../../assets/images/shared/places/a.jpeg" alt="Image 4" />
+        </div>
+      </div>
+      <div class="caption">
+        <h2>Explore the Beauty <br />of andhara</h2>
+      </div>
+      <div class="controls">
+        <button class="prev" onclick="prevSlide()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next" onclick="nextSlide()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="pagination" id="pagination">
+        <div class="dot" onclick="showSlide(0)"></div>
+        <div class="dot" onclick="showSlide(1)"></div>
+        <div class="dot" onclick="showSlide(2)"></div>
+        <div class="dot" onclick="showSlide(3)"></div>
+      </div>
+
+      <main>
+        <div class="caption">
+          <div class="line"></div>
+          <h1>Tourist Places in andhara</h1>
+
+          <p>
+            Immerse yourself in the serene landscapes, vibrant culture, and rich
+            traditions.
+          </p>
+          <div class="line"></div>
+        </div>
+        <section id="places">
+          <div class="place" id="Tirupathi">
+            <h2>Tirupathi</h2>
+            <p class="des0">Tirupati is a major pilgrimage and cultural city in India,
+               and for being home to the</br> Sri Venkateswara Temple</p>
+            <img
+              src="assets/images/Tirumala_090615.jpg"
+              alt="Tirupathi"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Tirupathi-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Tirupathi-details">
+              <p>
+                The city is home to the important Hindu shrine of Tirumala Venkateshwara Temple
+                 and other historic temples. It is located at a distance of 150 km from Chennai,
+                  250 km from Bangalore, 406 km from Amaravati. It is one of the eight Svayam vyakta
+                   kshetras (Self-Manifested Temples) dedicated to Hindu deity Vishnu.
+              </p>
+            </div>
+          </div>
+
+          <div class="place" id="vijayawada">
+            <h2>vijayawada</h2>
+            <p class="des0">
+              Vijayawada is famous for many things, including its temples, caves, and other attractions.
+            </p>
+            <img
+              src="assets/images/vijayawada.jpeg"
+              alt="vijayawada"
+              width="300"
+              height="200"
+            />
+            <button onclick="toggleDetails('vijayawada-details')" class="more-btn">
+              More Info
+            </button>
+            <div class="details" id="vijayawada-details">
+              <p>
+                Vijayawada is considered to be a sacred place due to it being home to one
+                 of the most visited and famous temples in Andhra Pradesh and India,
+                 the Kanaka Durga Temple of the Hindu Goddess Durga residing on the Indrakeeladri hill.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="vizag">
+            <h2>vizag</h2>
+            <p class="des0">
+              Vizag is a popular tourist destination in Andhra Pradesh,
+               India and is known for many things.
+            </p>
+            <img
+              src="assets/images/vizzag%20beach.jpg"
+              alt="vizag"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('vizag-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="vizag-details">
+              <p>
+                The port of Visakhapatnam is renowned for being home to the oldest shipyard in all of India,
+                 and with a plethora of manmade wonders and natural spectacles, Visakhapatnam is a must-visit
+                  tourist destination in South India. 
+              </p>
+            </div>
+          </div>
+          <div class="place" id="srisailam">
+            <h2>srisailam</h2>
+            <p class="des0">
+              Srisailam is famous for its ancient temple, the Mallikarjuna Jyotirlinga Temple. 
+            </p>
+            <img
+              src="assets/images/srisailam.jpeg"
+              alt="srisailam"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('srisailam-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="srisailam-details">
+              <p>
+                The temple at Srisailam is the ancient and sacred place of South India.
+                 The presiding deity of the place is Brahmaramba Mallikarjuna Swamy in 
+                 natural stone formations in the shape of Lingam and is listed as one of
+                  the twelve Jyotirlingams existing in the country.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="lapakshi">
+            <h2>lepakshi</h2>
+            <p class="des0">
+                It is a must-visit for those who love history and heritage.
+            </p>
+            <img
+              src="assets/images/lapakshi.jpg"
+              alt="lapakshi"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('lepakshi-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="lepakshi-details">
+              <p>
+                The Lepakshi temple, also known as Veerbhadra temple is located in the tiny 
+                hamlet of Anantapur District of Andhra Pradesh. It is famous for its architecture
+                 characterised by hanging pillars and cave chambers that can astound you!.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="araku valley">
+            <h2>araku valley</h2>
+            <p class="des0">
+              Araku Valley is a hill station in Andhra Pradesh known for its natural beauty,
+               coffee plantations,</br> and tribal culture  
+            </p>
+            <img
+              src="assets/images/araku%20valley.jpeg"
+              alt="araku valley"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('araku valley-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="araku valley-details">
+              <p>
+                
+              </p>At an elevation of about 3200 ft, Araku is famous for its coffee plantations
+               surrounded by beautiful gardens, streams, waterfalls and valleys that are covered 
+               with lush green forests. Situated in the Eastern Ghats, the hill station is about 
+               112 km southeast of Vishakhapatnam.
+            </div>
+          </div>
+          <div class="place" id="amaravathi">
+            <h2>amaravathi</h2>
+            <p class="des0">
+            The Amaravati stupa, constructed about the 2nd century bce became one of the
+             largest </br>and most important Buddhist stupas in India.
+              
+            </p>
+            <img
+              src="assets/images/amaravathi.jpeg"
+              alt="amaravathi"
+              width="300"
+              height="200"
+            />
+            <button onclick="toggleDetails('amaravathi-details')" class="more-btn">
+              More Info
+            </button>
+            <div class="details" id="amaravathi-details">
+              <p>
+                The city was also once a holy site of Mahayana Buddhism. The city used to have a 
+                large Buddhist Stupa now known as Amaravati Stupa. It was also the centre of Buddhist
+               learning and art with several Buddhist followers from many South East Asian countries visiting.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="horsey hills">
+            <h2>horesy hils</h2>
+            <p class="des0">
+              Located near the southwestern border between Andhra Pradesh and Karnataka. 
+            </p>
+            <img
+              src="assets/images/horsley-hills.jpg"
+              alt="horesy hill"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('horesy hills-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="horesy hills-details">
+            <p>
+              Located near the southwestern border between Andhra Pradesh and Karnataka,
+              Horsley Hills refers to a hill station that is the perfect amalgam of the
+              charms of Andhra Pradesh and the beauty of the hills. It is thus often called, 
+              the Ooty of Andhra. This natural marvel is situated at an astonishing
+            </p>
+            </div>
+          </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <!-- Footer Section Start -->
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="social">
+              <a href=""><li class="fa fa-instagram"></li></a>
+              <a href=""><li class="fa fa-twitter"></li></a>
+              <a href=""><li class="fa fa-facebook-f"></li></a>
+            </div>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Terms</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <p>
+              Copyright &#169;
+              <a href="https://htmlcodex.com">HTML Codex</a> All Rights
+              Reserved.
+            </p>
+            <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Section End -->
+
+    <script>
+      function restrictZoom() {
+        let maxAllowedWidth = 1500;
+        if (window.innerWidth > maxAllowedWidth) {
+          document.body.style.transform =
+            "scale(" + maxAllowedWidth / window.innerWidth + ")";
+          document.body.style.transformOrigin = "top left";
+        } else {
+          document.body.style.transform = "none";
+        }
+      }
+
+      window.addEventListener("resize", restrictZoom);
+      window.addEventListener("load", restrictZoom);
+    </script>
+    <script>
+      function searchPlace() {
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        console.log("Search input:", input);
+        var cards = document.querySelectorAll(".place");
+        console.log("Number of place cards:", cards.length);
+
+        let found = false;
+        cards.forEach(function (card) {
+          var cardText = card.querySelector("h2").textContent.toLowerCase();
+          console.log("Checking card:", cardText);
+
+          if (cardText.includes(input)) {
+            console.log("Match found:", cardText);
+
+            card.scrollIntoView({ behavior: "smooth" });
+
+            card.style.backgroundColor = "#1c1c29d7";
+
+            found = true;
+          } else {
+            card.style.backgroundColor = "";
+          }
+        });
+
+        if (!found) {
+          console.log("No match found");
+          alert("Place not found!");
+        }
+      }
+
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", searchPlace);
+    </script>
+    <script>
+      let slider = document.getElementById("slider");
+      let slides = slider.getElementsByTagName("img");
+      let index = 0;
+      const totalSlides = slides.length;
+      let dots = document.getElementsByClassName("dot");
+
+      function showSlide(i) {
+        index = (i + totalSlides) % totalSlides;
+        slider.style.transform = "translateX(" + -index * 80 + "vw)";
+        updateDots();
+      }
+
+      function nextSlide() {
+        showSlide(index + 1);
+      }
+
+      function prevSlide() {
+        showSlide(index - 1);
+      }
+      function updateDots() {
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove("active");
+        }
+        dots[index].classList.add("active");
+      }
+
+      setInterval(nextSlide, 3000);
+      updateDots(); // Initialize the first dot as active
+    </script>
+    <script src="../../script.js"></script>
+    <script src="../../assets/js/place-weather.js"></script>
+</body>
+</html>

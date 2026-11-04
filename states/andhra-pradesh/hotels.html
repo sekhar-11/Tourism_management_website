@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6 Andhara Hotels</title>
+    <style>
+      body {
+        background-color: #121212;
+
+        font-family: Arial, sans-serif;
+        color: #d3d3d3;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #333;
+      }
+
+      .navbar a {
+        color: #f0a;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .navbar a:hover {
+        color: #fff;
+      }
+
+      .header {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .header h1 {
+        font-weight: bold;
+        color: rgba(250, 249, 250, 0.877);
+      }
+
+      .slider {
+        position: relative;
+        overflow: hidden;
+        margin: 20px 0;
+        border-radius: 8px;
+        display: inline-block;
+      }
+
+      .slides {
+        display: flex;
+        animation: slide 20s infinite;
+      }
+
+      .slide {
+        min-width: 100%;
+        height: 700px;
+        transition: 0.5s;
+      }
+      .slider ::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(52, 49, 65, 0.65));
+        z-index: 3;
+      }
+
+      .h {
+        position: absolute;
+        top: 50%;
+        left: 530px;
+        width: 700px;
+        transform: translate(-40%, -50%);
+        color: rgba(248, 245, 245, 0.788);
+        font-size: 80px;
+        font-weight: 700;
+        text-align: center;
+        padding: 10px 20px;
+        border: 3px solid transparent;
+        transition: border 0.4s ease-in-out, color 0.4s ease-in-out;
+        z-index: 2;
+      }
+      .h:hover {
+        color: transparent;
+        -webkit-text-stroke: 3px #f7fafcee;
+      }
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-100%);
+        }
+        45% {
+          transform: translateX(-100%);
+        }
+        50% {
+          transform: translateX(-200%);
+        }
+        70% {
+          transform: translateX(-200%);
+        }
+        75% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .category-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+      }
+
+      .category-buttons button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: #f0a;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .category-buttons button:hover {
+        background-color: #f0a;
+        color: #fff;
+      }
+
+      .card {
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .card h2 {
+        color: #fff;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .hover-effect:hover {
+        transform: scale(1.05);
+      }
+
+      .map-container {
+        display: none;
+        width: 100%;
+        height: 300px; /* Set a fixed height for the map */
+        margin-top: 10px;
+        overflow: hidden;
+        border: 2px solid #f0a;
+        position: relative;
+      }
+
+      .footer {
+        background-color: #333;
+        color: #f0a;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        font-size: 16px;
+      }
+
+      .footer .social-icons {
+        margin-top: 10px;
+      }
+
+      .footer .social-icons i {
+        margin: 0 10px;
+        font-size: 24px;
+        color: #f0a;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .footer .social-icons i:hover {
+        color: #fff;
+      }
+
+      .scroll-animation {
+        animation: scrollEffect 2s ease-out;
+      }
+
+      @keyframes scrollEffect {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .price {
+        font-size: 18px;
+        color: #f0a;
+        margin: 10px 0;
+      }
+
+      .book-button {
+        padding: 10px 20px;
+        background-color: #f0a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .book-button:hover {
+        background-color: #fff;
+        color: #f0a;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/hotel-cards.css">
+    <link rel="stylesheet" href="../../assets/css/booking-flow.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="travel.html">Back</a>
+      <span>Kerala Hotels</span>
+    </nav>
+
+    <div class="header">
+      <h1>Welcome to Andhara Hotels</h1>
+    </div>
+    <h1 class="h" style="margin-left: 13%">Experience Luxury & Comfort</h1>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide">
+          <img
+            src="../../assets/images/shared/hotels/ap1.jpg"
+            alt="Slider Image 1"
+            style="width: 100%"
+            style="height: 60%"
+          />
+        </div>
+        <div class="slide">
+          <img
+            src="../../assets/images/shared/hotels/ap2.jpg"
+            alt="Slider Image 2"
+            style="width: 100%"
+            style="height: 60%"
+          />
+        </div>
+        <div class="slide">
+          <img
+            src="../../assets/images/shared/hotels/ap3.jpg"
+            alt="Slider Image 3"
+            style="width: 100%"
+            style="height: 30%"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container hotel-listing">
+      <div class="category-buttons">
+        <button onclick="showCategory('all')">All</button>
+        <button onclick="showCategory('luxury')">Luxury</button>
+        <button onclick="showCategory('budget')">Budget-Friendly</button>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Novotel Visakhapatnam Varun Beach , Vizag</h2>
+
+        <p>A luxurious stay with world-class amenities in Vizag</p>
+        <div class="price">$250 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kochi-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Hotel Akshaya, Vizag</h2>
+        <p>Affordable accommodation with a historical charm in Vizag.</p>
+        <div class="price">$90 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kochi-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Marasa Sarovar Premiere ,Tirupati</h2>
+        <p>
+          Experience the tranquility and beauty of Tirupati in a luxurious
+          setting.
+        </p>
+        <div class="price">$230 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-munnar-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Hotel Bhimas Paradise, Tirupati</h2>
+        <p>Budget-friendly cottage with stunning views of Tirupati.</p>
+        <div class="price">$60 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-munnar-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Haritha Valley Resort , Araku Valley</h2>
+        <p>Enjoy a royal experience by the backwaters of Araku Valley.</p>
+        <div class="price">$240 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-alleppey-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>APTDC Mayuri Hill Resort , Araku Valley</h2>
+        <p>A cozy homestay by the backwaters with an affordable price.</p>
+        <div class="price">$70 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-alleppey-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Repeat similar divs for the remaining locations -->
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Manorama Hotel , Amaravati</h2>
+        <p>Exclusive resort by the Vembanad Lake in Amaravati.</p>
+        <div class="price">$260 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kumarakom-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Capital O 45936 G Hotel, Amaravati</h2>
+        <p>Charming budget homestay near the backwaters of Amaravati.</p>
+        <div class="price">$75 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kumarakom-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Fortune Murali Park, Vijayawada</h2>
+        <p>Luxury nestled in the heart of Vijayawada's natural beauty.</p>
+        <div class="price">$220 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-thekkady-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Hotel Southern Grand, Vijayawada</h2>
+        <p>Budget-friendly resort amidst the scenic spice plantations.</p>
+        <div class="price">$85 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-thekkady-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Haritha Hotel Lepakshi , Lepakshi</h2>
+        <p>Exclusive retreat in the lush old monuments of Lepakshi. .</p>
+        <div class="price">$240 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-wayanad-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>AP Tourism Hotel Lepakshi, Lepakshi</h2>
+        <p>Charming budget cottage surrounded by Lepakshi's natural beauty.</p>
+        <div class="price">$70 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-wayanad-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Pathaleshwara Sadan, Srisailam</h2>
+        <p>Experience unmatched luxury overlooking Srisailam nature.</p>
+        <div class="price">$300 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kovalam-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Haritha Hotel Srisailam , Srisailam</h2>
+        <p>Budget accommodation just a few steps from Srisailam temple.</p>
+        <div class="price">$80 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-kovalam-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Haritha Hill Resort , Horsley Hills</h2>
+        <p>Luxury hotel located in the heart of Horsley Hills.</p>
+        <div class="price">$210 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-thrissur-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Governor’s Bungalow, Horsley Hills</h2>
+        <p>
+          Budget-friendly hotel offering modern facilities in Horsley Hills.
+        </p>
+        <div class="price">$75 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-thrissur-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="luxury">
+        <h2>Vijay Vihar - APTDC, Nagarjuna Sagar</h2>
+        <p>Beachfront luxury retreat in the scenic town of Nagarjuna Sagar.</p>
+        <div class="price">$220 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-varkala-luxury"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card hover-effect" data-category="budget">
+        <h2>Haritha Vijay Vihar Hotel, Nagarjuna Sagar</h2>
+        <p>Budget-friendly, eco-friendly stay just minutes from the beach.</p>
+        <div class="price">$60 per night</div>
+        <button class="book-button">Book Now</button>
+        <button onclick="toggleMap(this)">Show Map</button>
+        <div class="map-container">
+          <div
+            id="map-varkala-budget"
+            class="map"
+            style="width: 100%; height: 100%"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer scroll-animation">
+      Southern Safari &copy; 2024
+      <div class="social-icons">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMap(button) {
+        const mapContainer = button.nextElementSibling;
+        if (
+          mapContainer.style.display === "none" ||
+          mapContainer.style.display === ""
+        ) {
+          mapContainer.style.display = "block";
+          button.innerText = "Hide Map";
+        } else {
+          mapContainer.style.display = "none";
+          button.innerText = "Show Map";
+        }
+      }
+
+      function showCategory(category) {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          if (
+            category === "all" ||
+            card.getAttribute("data-category") === category
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      function initMap() {
+        // For The Elephant Court, Thekkady (Luxury)
+        const mapThekkadyLuxury = L.map("map-thekkady-luxury").setView(
+          [9.5937, 77.1604],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapThekkadyLuxury);
+        L.marker([9.5937, 77.1604])
+          .addTo(mapThekkadyLuxury)
+          .bindPopup("The Elephant Court, Thekkady")
+          .openPopup();
+
+        // For Coffee Routes Resort, Thekkady (Budget)
+        const mapThekkadyBudget = L.map("map-thekkady-budget").setView(
+          [9.601, 77.1618],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapThekkadyBudget);
+        L.marker([9.601, 77.1618])
+          .addTo(mapThekkadyBudget)
+          .bindPopup("Coffee Routes Resort, Thekkady")
+          .openPopup();
+
+        // For Vythiri Resort, Wayanad (Luxury)
+        const mapWayanadLuxury = L.map("map-wayanad-luxury").setView(
+          [11.532, 76.0419],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapWayanadLuxury);
+        L.marker([11.532, 76.0419])
+          .addTo(mapWayanadLuxury)
+          .bindPopup("Vythiri Resort, Wayanad")
+          .openPopup();
+
+        // For Green Mount Cottage, Wayanad (Budget)
+        const mapWayanadBudget = L.map("map-wayanad-budget").setView(
+          [11.6151, 76.0821],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapWayanadBudget);
+        L.marker([11.6151, 76.0821])
+          .addTo(mapWayanadBudget)
+          .bindPopup("Green Mount Cottage, Wayanad")
+          .openPopup();
+
+        // For The Leela Kovalam, Kovalam (Luxury)
+        const mapKovalamLuxury = L.map("map-kovalam-luxury").setView(
+          [8.4005, 76.9789],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapKovalamLuxury);
+        L.marker([8.4005, 76.9789])
+          .addTo(mapKovalamLuxury)
+          .bindPopup("The Leela Kovalam, Kovalam")
+          .openPopup();
+
+        // For Hotel Thushara, Kovalam (Budget)
+        const mapKovalamBudget = L.map("map-kovalam-budget").setView(
+          [8.4025, 76.9784],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapKovalamBudget);
+        L.marker([8.4025, 76.9784])
+          .addTo(mapKovalamBudget)
+          .bindPopup("Hotel Thushara, Kovalam")
+          .openPopup();
+
+        // For Joys Palace Hotel, Thrissur (Luxury)
+        const mapThrissurLuxury = L.map("map-thrissur-luxury").setView(
+          [10.5276, 76.2144],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapThrissurLuxury);
+        L.marker([10.5276, 76.2144])
+          .addTo(mapThrissurLuxury)
+          .bindPopup("Joys Palace Hotel, Thrissur")
+          .openPopup();
+
+        // For Dass Continental, Thrissur (Budget)
+        const mapThrissurBudget = L.map("map-thrissur-budget").setView(
+          [10.5234, 76.2172],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapThrissurBudget);
+        L.marker([10.5234, 76.2172])
+          .addTo(mapThrissurBudget)
+          .bindPopup("Dass Continental, Thrissur")
+          .openPopup();
+
+        // For Hindustan Beach Retreat, Varkala (Luxury)
+        const mapVarkalaLuxury = L.map("map-varkala-luxury").setView(
+          [8.735, 76.7118],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapVarkalaLuxury);
+        L.marker([8.735, 76.7118])
+          .addTo(mapVarkalaLuxury)
+          .bindPopup("Hindustan Beach Retreat, Varkala")
+          .openPopup();
+
+        // For Kerala Bamboo House, Varkala (Budget)
+        const mapVarkalaBudget = L.map("map-varkala-budget").setView(
+          [8.7344, 76.7081],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapVarkalaBudget);
+        L.marker([8.7344, 76.7081])
+          .addTo(mapVarkalaBudget)
+          .bindPopup("Kerala Bamboo House, Varkala")
+          .openPopup();
+
+        // For Vivanta by Taj - Green Cove, Trivandrum (Luxury)
+        const mapTrivandrumLuxury = L.map("map-trivandrum-luxury").setView(
+          [8.4149, 76.978],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapTrivandrumLuxury);
+        L.marker([8.4149, 76.978])
+          .addTo(mapTrivandrumLuxury)
+          .bindPopup("Vivanta by Taj - Green Cove, Trivandrum")
+          .openPopup();
+
+        // For Saj Luciya, Trivandrum (Budget)
+        const mapTrivandrumBudget = L.map("map-trivandrum-budget").setView(
+          [8.4856, 76.9492],
+          15
+        );
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(mapTrivandrumBudget);
+        L.marker([8.4856, 76.9492])
+          .addTo(mapTrivandrumBudget)
+          .bindPopup("Saj Luciya, Trivandrum")
+          .openPopup();
+
+        // Get user location
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+              L.marker([userLat, userLng])
+                .addTo(mapThekkadyLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapThekkadyBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapWayanadLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapWayanadBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapKovalamLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapKovalamBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapThrissurLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapThrissurBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapVarkalaLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapVarkalaBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapTrivandrumLuxury)
+                .bindPopup("Your Current Location")
+                .openPopup();
+              L.marker([userLat, userLng])
+                .addTo(mapTrivandrumBudget)
+                .bindPopup("Your Current Location")
+                .openPopup();
+            },
+            () => {
+              alert("Unable to retrieve your location.");
+            }
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      }
+
+      window.onload = initMap;
+    </script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      // Function to get the URL parameter
+      function getParameterByName(name) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+      }
+  
+      // Get the 'place' parameter from the URL
+      const place = getParameterByName('place');
+      
+      // Convert the place parameter to lowercase for case-insensitive comparison
+      const placeLower = place ? place.toLowerCase() : "";
+  
+      // Select all hotel cards
+      const hotelCards = document.querySelectorAll('.card');
+  
+      // Loop through each hotel card
+      hotelCards.forEach(card => {
+          const hotelName = card.querySelector('h2').textContent;
+          
+          // Check if the hotel name contains the place name
+          if (hotelName.toLowerCase().includes(placeLower)) {
+              card.style.display = 'block'; // Show the card
+          } else {
+              card.style.display = 'none'; // Hide the card
+          }
+      });
+  </script>
+  <script src="../../assets/js/booking-flow.js"></script>
+<script src="../../assets/js/hotel-card-images.js"></script>
+</body>
+</html>

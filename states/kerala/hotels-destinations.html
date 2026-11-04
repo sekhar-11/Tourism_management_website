@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Hotels - Southern Safari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        nav a:hover {
+            color: #f582a7;
+        }
+        .back-button {
+            background-color: #f582a7;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 16px;
+            text-decoration: none;
+        }
+        
+        .form1 {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            border-radius: 40px;
+            padding: 10px;
+            
+            margin-left: 10px;
+            background: white;
+            top: 10px;
+            width: 400px;
+            height: 20px;
+            left:300px;
+        }
+        .r{
+          border-radius: 40px;
+          font-size: 14px;
+          height: 30px;
+          width: 90px;
+          padding: 5px 5px;
+          padding-bottom: 10px;
+          position: relative;
+          left: -0px;
+          border: none;
+          background: linear-gradient(40deg, #f3f1f2,#3d3d3d);
+          box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+      }
+      .r:hover{
+        background: linear-gradient(40deg, #e7e5e5,#292929);
+
+      }
+        .input {
+            border: none;
+            outline: 0;
+            width: 100%;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .hotel-section {
+            margin-bottom: 40px;
+        }
+        .hotel-section h2 {
+            color: #f582a7;
+        }
+        .hotel-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .hotel-list li {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #222;
+            border-radius: 8px;
+        }
+        .hotel-list li a {
+            color: #f582a7;
+            text-decoration: none;
+        }
+        .hotel-list li a:hover {
+            text-decoration: underline;
+        }
+        .hotel-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: #00ff00;
+            margin-top: 5px;
+        }
+        .date-picker {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <a href="index.html" class="back-button">← Back</a>
+        </div>
+        <div>
+            <form class="form1" onsubmit="return false;">
+                <input type="text" placeholder="State Name" class="input" id="searchInput" >
+                <button type="button" class="btn r"  id="searchButton">Search</button>
+            </form>
+        </div>
+    </nav>
+    
+
+    <div class="container">
+        <!-- Kasargod -->
+        <div class="hotel-section" id="Kasargod">
+            <h2>Hotels in Kasargod</h2>
+            <ul class="hotel-list">
+                <li>
+                    <img src="assets/images/hotels/1.jpg" alt="Taj Bekal Resort" class="hotel-image">
+                    <a href="#">Taj Bekal Resort & Spa</a>
+                    <div class="price">Price: ₹12,000/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/hotels/2.jpg" alt="Neeleshwar Hermitage" class="hotel-image">
+                    <a href="#">Neeleshwar Hermitage</a>
+                    <div class="price">Price: ₹10,000/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Kannur -->
+        <div class="hotel-section" id="Kannur">
+            <h2>Hotels in Kannur</h2>
+            <ul class="hotel-list">
+                <li>
+                    <img src="assets/images/hotels/3.jpg" alt="Mascot Beach Resort" class="hotel-image">
+                    <a href="#">Mascot Beach Resort</a>
+                    <div class="price">Price: ₹4,500/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/hotels/1.jpg" alt="Hotel Blue Nile" class="hotel-image">
+                    <a href="#">Hotel Blue Nile</a>
+                    <div class="price">Price: ₹3,500/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Wayanad -->
+        <div class="hotel-section" id="Wayanad">
+            <h2>Hotels in Wayanad</h2>
+            <ul class="hotel-list">
+                <li>
+                    <img src="assets/images/hotels/2.jpg" alt="Vythiri Resort" class="hotel-image">
+                    <a href="#">Vythiri Resort</a>
+                    <div class="price">Price: ₹9,000/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/hotels/3.jpg" alt="Wayanad Silverwoods" class="hotel-image">
+                    <a href="#">Wayanad Silverwoods Resort</a>
+                    <div class="price">Price: ₹8,000/night</div>
+                    <div class="date-picker">
+                        Check-in: <input type="date"> Check-out: <input type="date">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+            <!-- Kozhikode -->
+    <div class="hotel-section" id="Kozhikode">
+        <h2>Hotels in Kozhikode</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="The Gateway Hotel" class="hotel-image">
+                <a href="#">The Gateway Hotel</a>
+                <div class="price">Price: ₹7,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Hotel Paramount Tower" class="hotel-image">
+                <a href="#">Hotel Paramount Tower</a>
+                <div class="price">Price: ₹3,200/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Malappuram -->
+    <div class="hotel-section" id="Malappuram">
+        <h2>Hotels in Malappuram</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Emarald Ayurvedic Resort" class="hotel-image">
+                <a href="#">Emarald Ayurvedic Resort</a>
+                <div class="price">Price: ₹6,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="Hotel Pookodans" class="hotel-image">
+                <a href="#">Hotel Pookodans International</a>
+                <div class="price">Price: ₹3,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Palakkad -->
+    <div class="hotel-section" id="Palakkad">
+        <h2>Hotels in Palakkad</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Boothathankettu Resort" class="hotel-image">
+                <a href="#">Boothathankettu Resort</a>
+                <div class="price">Price: ₹5,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Hotel Sithara" class="hotel-image">
+                <a href="#">Hotel Sithara</a>
+                <div class="price">Price: ₹2,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Thrissur -->
+    <div class="hotel-section" id="Thrissur">
+        <h2>Hotels in Thrissur</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="Joys Palace" class="hotel-image">
+                <a href="#">Joys Palace</a>
+                <div class="price">Price: ₹6,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Lulu International" class="hotel-image">
+                <a href="#">Lulu International Convention Centre</a>
+                <div class="price">Price: ₹4,200/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Ernakulam -->
+    <div class="hotel-section" id="Ernakulam">
+        <h2>Hotels in Ernakulam</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Grand Hyatt Kochi" class="hotel-image">
+                <a href="#">Grand Hyatt Kochi</a>
+                <div class="price">Price: ₹12,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="Radisson Blu" class="hotel-image">
+                <a href="#">Radisson Blu Kochi</a>
+                <div class="price">Price: ₹6,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Idukki -->
+    <div class="hotel-section" id="Idukki">
+        <h2>Hotels in Idukki</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Mountain Club" class="hotel-image">
+                <a href="#">Mountain Club Resort</a>
+                <div class="price">Price: ₹8,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Spice Tree Resort" class="hotel-image">
+                <a href="#">Spice Tree Resort</a>
+                <div class="price">Price: ₹9,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Kottayam -->
+    <div class="hotel-section" id="Kottayam">
+        <h2>Hotels in Kottayam</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="A Village Inn" class="hotel-image">
+                <a href="#">A Village Inn</a>
+                <div class="price">Price: ₹3,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Coconut Lagoon" class="hotel-image">
+                <a href="#">Coconut Lagoon Resort</a>
+                <div class="price">Price: ₹7,200/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Alappuzha -->
+    <div class="hotel-section" id="Alappuzha">
+        <h2>Hotels in Alappuzha</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Lake Palace Resort" class="hotel-image">
+                <a href="#">Lake Palace Resort</a>
+                <div class="price">Price: ₹10,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="Punnamada Resort" class="hotel-image">
+                <a href="#">Punnamada Resort</a>
+                <div class="price">Price: ₹8,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Pathanamthitta -->
+    <div class="hotel-section" id="Pathanamthitta">
+        <h2>Hotels in Pathanamthitta</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Woodland Resort" class="hotel-image">
+                <a href="#">Woodland Resort</a>
+                <div class="price">Price: ₹5,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Hotel Hills PalaceHere's the continuation of the hotel listings for the remaining places in Kerala:
+
+```html
+    <!-- Kollam -->
+    <div class="hotel-section" id="Kollam">
+        <h2>Hotels in Kollam</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="The Raviz Ashtamudi" class="hotel-image">
+                <a href="#">The Raviz Ashtamudi</a>
+                <div class="price">Price: ₹9,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/2.jpg" alt="Quilon Beach Hotel" class="hotel-image">
+                <a href="#">Quilon Beach Hotel</a>
+                <div class="price">Price: ₹5,500/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Thiruvananthapuram -->
+    <div class="hotel-section" id="Thiruvananthapuram">
+        <h1>hotels in</h1>
+        <h2>Thiruvananthapuram</h2>
+        <ul class="hotel-list">
+            <li>
+                <img src="assets/images/hotels/3.jpg" alt="Taj Green Cove Resort" class="hotel-image">
+                <a href="#">Taj Green Cove Resort & Spa</a>
+                <div class="price">Price: ₹12,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+            <li>
+                <img src="assets/images/hotels/1.jpg" alt="Hilton Garden Inn" class="hotel-image">
+                <a href="#">Hilton Garden Inn</a>
+                <div class="price">Price: ₹7,000/night</div>
+                <div class="date-picker">
+                    Check-in: <input type="date"> Check-out: <input type="date">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    </div>
+    <script>
+        function searchPlace() {
+          
+          var input = document.getElementById("searchInput").value.toLowerCase();
+          console.log("Search input:", input); 
+          var cards = document.querySelectorAll(".place");
+          console.log("Number of place cards:", cards.length); 
+        
+          let found = false;  
+          cards.forEach(function(card) {
+              var cardText = card.querySelector("h2").textContent.toLowerCase();
+              console.log("Checking card:", cardText); 
+        
+              
+              if (cardText.includes(input)) {
+                  console.log("Match found:", cardText); 
+        
+                  
+                  card.scrollIntoView({ behavior: 'smooth' });
+        
+                  
+                  card.style.backgroundColor = '#1c1c29d7';  
+                  
+                  found = true;
+              } else {
+                  
+                  card.style.backgroundColor = '';
+              }
+          });
+        
+          
+          if (!found) {
+              console.log("No match found");  
+              alert("Place not found!");
+          }
+        }
+        document.getElementById("searchButton").addEventListener("click", searchPlace);
+    </script> 
+</body>
+</html>

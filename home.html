@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        html{
+            zoom: 1;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Outfit", sans-serif;
+            box-sizing: border-box;
+        }
+        .main {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        body {
+            background-color: #16161f;
+            background-image: linear-gradient(rgba(52, 49, 65, 0.65), );
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: auto;
+        S
+            margin: 0 auto;
+            width: 100%;
+            overflow-x: hidden; 
+            
+        }
+        
+        
+        .container {
+            border: 3px;
+            width: 80%;
+            position: relative;
+            top: 70px;
+            min-height: 570px;
+            
+            background-size: cover;
+            background-position: center;
+            margin-top: 20px;
+            border-radius: 30px;
+        
+            top: 70px;
+            margin:auto;
+        
+            
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            top: 0;
+            right: px;
+            backdrop-filter: blur(10px);
+            z-index: 3;
+        }
+        .logo{
+            font-size: 20px;
+            color: #eee;
+        }
+        .logo-i{
+            position: absolute;
+            top: 7px;
+            height: 50px;
+            width: 50px;
+        }
+        .logo-n{
+            position: absolute;
+            left: 63px;
+            top: 20px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: 0;
+            background: #f5168d;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+        i {
+            font-size: 26px;
+            margin-right: 10px;
+        }
+        nav ul {
+            position: fixed;
+            right: -15px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        a {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            color: #a0a0a0;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        a:after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 0;
+            left: 0;
+            bottom: -3px;
+            background-color: #ff3c78;
+            transition: 0.3s;
+            border-radius: 40px;
+        }
+        a:hover {
+            color: white;
+        }
+        a:hover:after {
+            width: 100%;
+        }
+        .content {
+            position: absolute;
+            top: -200px;
+            left: -50px;
+            bottom: 0;
+            margin-top: 450px;
+            display: flex;
+            margin-left: 130px;
+            flex-wrap: wrap;
+            color: #fff;
+            max-width: 800px;
+            z-index: 2;
+        }
+        p{
+            position:absolute;
+            width: 600px;
+            top: 170px;
+            left:20px;
+        }
+        h1 {
+            position: absolute;
+            font-size: 80px;
+            margin-left: 10px;
+            font-weight: 600;
+            line-height: 85px;
+            margin-bottom: 0px;
+            width: 700px;
+        }
+        .form1 {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            border-radius: 40px;
+            padding: 10px;
+            margin-top: 200px;
+            margin-left: 10px;
+            background: white;
+            top: 30px;
+            width: 300px;
+        }
+        .input {
+            border: none;
+            outline: 0;
+            width: 100%;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+        #r {
+            border-radius: 40px;
+            font-size: 15px;
+            padding: 10px 30px;
+            position: relative;
+            left: -0px;
+        }
+        #icon {
+            cursor: pointer;
+            font-size: 30px;
+            color: rgb(240, 232, 232,232);
+            background-color: transparent;
+            border: none;
+        }
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .shov {
+            color: black;
+        }
+        .shov:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 800px) {
+            .hideOnMobile {
+                display: none;
+            }
+            .sidebar {
+                display: none;
+            }
+            nav ul {
+                display: none;
+            }
+            nav ul:last-child {
+                display: flex;
+            }
+        }
+        @media (min-width: 800px) {
+            .menu {
+                display: none;
+
+            }
+        .video-container{
+            width: 280px;
+        }
+        }
+        @media (max-width: 700px) {
+            h1 {
+                position: absolute;
+                font-size: 25px;
+                font-weight: 600;
+                line-height: 70px;
+                left: -100px;
+
+                
+            }
+            h1,p,form{
+                left: -200px;
+                
+                position: absolute;
+                
+            }
+        }
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 45px;
+                font-weight: 450;
+                line-height: 55px;
+            
+            }
+            
+        }
+        @media (max-width: 420px) {
+            h1 {
+                font-size: 30px;
+                font-weight: 300;
+                line-height: 40px;
+            }
+        }
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust as needed */
+            width: 100%;
+            position: relative;
+        }
+        .wrapper {
+            width: 70%;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            top: 1500px;
+            flex-direction: column;
+        }
+        .card {
+            width: 1000px;
+            height: 300px;
+            background-color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1534531409543-069f6204c5b4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWElMjBmb3Jlc3R8ZW58MHx8MHx8fDA%3D');
+            margin: auto;
+            background-size: cover;
+            padding-left: 50px;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            position: relative;
+            top: 90px;
+            left: 0px;
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .package-kerala {
+            background-image: url('assets/images/shared/places/d.jpeg');
+        }
+
+        .package-goa {
+            background-image: url('states/goa/assets/images/baga1.jpg');
+        }
+
+        .package-tamil-nadu {
+            background-image: url('states/tamil-nadu/assets/images/thanjavur.jpg');
+        }
+
+        .package-karnataka {
+            background-image: url('states/karnataka/assets/images/hampi.jpeg');
+        }
+
+        .package-andhra-pradesh {
+            background-image: url('states/andhra-pradesh/assets/images/araku%20valley.jpeg');
+        }
+
+        .package-south-india {
+            background-image:
+                url('states/goa/assets/images/baga1.jpg'),
+                url('states/kerala/assets/images/hotels/k-hotel3.jpg'),
+                url('states/tamil-nadu/assets/images/thanjavur.jpg'),
+                url('states/karnataka/assets/images/hampi.jpeg');
+            background-size: 50% 50%;
+            background-position: top left, top right, bottom left, bottom right;
+            background-repeat: no-repeat;
+        }
+        
+        .card:hover {
+            transform: translateY(-20px);
+        }
+        
+        .card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(166, 168, 163, 0.7), rgba(0, 0, 0, 0.7));
+            z-index: 2;
+            transition: opacity 0.5s;
+            opacity: 0;
+            border-radius: 12px;
+        }
+        
+        .card:hover:before {
+            opacity: 1;
+        }
+        
+        .info {
+            position: relative;
+            left: 30px;
+            z-index: 3;
+            color: #fff;
+            font-weight: 500;
+            top: 0px;
+            opacity: 0;
+            transform: translateY(230px);
+            transition: opacity 0.5s, transform 0.5s;
+            font-size: 3rem; 
+            line-height: 1.2; 
+            width: 100%; 
+            height: auto; 
+            
+            padding: 20px;
+        }
+        .info-sep1{
+            height: 5px;
+            width: 200px;
+            position: relative;
+            background-color: #374249;
+            border-radius: 30px;
+        }
+        .info-li{
+            position: relative;
+            font-size: medium;
+            display: flex;
+            flex-direction: column;
+            top: 40px;
+            opacity: 0;
+            transform: translateY(230px);
+            transition: opacity 1s, transform 1s;
+        }
+        .info-des{
+            position: relative;
+            font-size: large;
+            top: 20px;
+            opacity: 0;
+            transform: translateY(230px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .info-sep{
+            height: 80px;
+            width: 2px;
+            border-radius: 12px;
+            border: #3f3c3c solid 2px;
+            position: absolute;
+            left: 350px;
+            top: 150px;
+            opacity: 0;
+            transform: translateY(230px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .info-det{
+            font-size: medium;
+            position: relative;
+            left: 370px;
+            top: -10px;
+            opacity: 0;
+            transform: translateY(230px);
+            transition: opacity 1.2s, transform 1.2s;
+        }
+        .info-button{
+            position: relative;
+            left: 750px;
+            height: 30px;
+            width: 100px;
+            cursor: pointer;
+            background: transparent;
+            transition: opacity 1.2s, transform 0.8s;
+            box-shadow: 3px 10px 13px rgba(0,0,0,0.5);
+            color: #eee;
+        }
+        .info-button:hover {
+            color: rgb(95, 94, 94);
+            opacity: 1;
+            transform: translateY(-8px); 
+            box-shadow: 3px 0px 10px 5px #070707b2;
+        }
+        .card:hover .info-des{
+            opacity: 1;
+            transform: translateY(-2px); 
+        }
+        .card:hover .info-sep{
+            opacity: 1;
+            transform: translateY(-2px); 
+        }
+        .card:hover .info {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        .card:hover .info-li {
+            opacity: 1;
+            transform: translateY(-2px);
+        }.card:hover .info-det {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            border-radius: 30px;
+            border: 8px #fff;
+            box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+     
+     .container1{
+         position: absolute;
+         top: 1200px;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         width: 1000px;
+         height: 600px;
+         
+         color: white;
+         box-shadow: 0 30px 50px #080808;
+
+     }
+     .container1 .slide .item{
+         width: 200px;
+         height: 270px;
+         position: absolute;
+         top:400px;
+         left: 200px;
+         transform: translate(0, -50%);
+         border-radius: 20px;
+         box-shadow: 0 30px 50px  #0f0f0f;
+         background-position: 50% 50%;
+         background-size: cover;
+         display: inline-block;
+         transition: 0.5s;
+     }
+     .slide .item:nth-child(1),
+     .slide .item:nth-child(2){
+         top: 0;
+         left: 0;
+         transform: translate(0, 0);
+         border-radius:20px;
+         width: 100%;
+         height: 100%;
+     }
+     .slide .item:nth-child(3){
+         left: 50%;
+     }
+     .slide .item:nth-child(4){
+         left: calc(50% + 220px);
+     }
+     .slide .item:nth-child(5){
+         left: calc(50% + 440px);
+     }
+    
+     .slide .item:nth-child(n+6){
+         left: calc(50% + 660px);
+         opacity: 0;
+     }
+     .item .content{
+             position: absolute;
+             top: -30px;
+             width:300px;
+             left: -70px;
+             text-align: left;
+             color:#eee;
+             transform: translate(0, -50%);
+             font-family: system-ui;
+             display: none;
+             padding-left: 40px;
+     }
+
+     .slide .item:nth-child(2) .content{
+         display: block;
+     }
+     .content .name{
+         font-size: 50px;
+         text-decoration: uppercase;
+         font-weight: bold;
+         padding-left: 40px;
+         opacity:0;
+         color: #fcf9f9 !important;
+         text-shadow: rgba(12, 12, 12, 0.993) 5px 10px 20px;
+         text-decoration-color: #ababab;
+         animation: animate 1s ease-in-out 0.3s 1 forwards;
+     }
+     .content .des{
+        position: relative;
+         margin-top: 10px;
+         margin-bottom: 20px;
+         padding-left: 40px;
+         font-size: 16px;
+         text-shadow: rgb(7, 7, 7) 0px 10px 10px;
+         color: #fcf9f9 !important;
+         opacity:0;
+         animation: animate 1s ease-in-out 0.6s 1 forwards;
+
+     }
+     .content .b1{
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         position: absolute ;
+         left: 80px;
+         opacity:0;
+         animation: animate 1s ease-in-out 1 forwards;
+     }
+     @keyframes animate {
+         from{
+             opacity: 1;
+             transform: translate(0, 100px);
+             filter: blur(33px);
+         }
+         to{
+             opacity: 1;
+             transform: translate(0);
+             filter: blur(0);
+         }            
+     }
+     button{
+         border-radius: 40px;
+         color: black;
+         font-weight: 70px;
+         border: 7px ;
+         border-color: aqua;
+     }
+     .button{
+         width: 100%;
+         text-align: center;
+         align-items: center;
+         position:absolute;
+         bottom: 20px;
+         left: -50px;
+     }
+     .button button{
+         width: 40px;
+         height: 35px;
+         border-radius: 8px;
+         border: none;
+         cursor: pointer;
+         margin: 0 5px; 
+         border: 1px soild #000; 
+         transition: 0.3s;
+     }
+     .button button:hover{
+         background: #ababab;
+         color: #fff;
+     }
+     #loc{
+        position: relative;
+        top: -70px;
+        color: black;
+
+     }
+     #h{
+        font-size: 16px;
+        align-items: center;
+        
+     }
+     @keyframes appear{
+        from{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+     }
+     .block {
+        opacity: 0; 
+        animation: appear 1s ease forwards;
+        
+    }
+    .block.in-view {
+        animation: appear 1s ease forwards;
+    }
+     .loc2{
+        position:absolute;
+        top: 1450px;
+        left: 0px;
+        font-weight: 600;
+        font-size: 60PX;
+        color: #a0a0a0;
+     }
+     .ul{
+            height: 6px;
+            width: 300px;
+            background-color: #f5168d;
+            position: absolute;
+            top: 1535px;
+            left: 0px;
+            border-radius: 40px;
+     }
+     .loc3{
+        position:absolute;
+        left: 80px; 
+        top: 200px;
+     }
+     #c{
+        width: 90px;
+        height: 5px;
+        background-color: #f5168d;
+        position: absolute;
+        top: -75px;
+        left: 0px;
+        border-radius: 40px;
+     }
+     #loc4{
+        position: absolute;
+        top: -150px;
+        left: -10px;
+        font-weight: 600;
+        font-size: 60PX;
+        color: #a0a0a0;
+     }
+     .contain1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        width: 800px !important;
+        top: 3400px;
+        left:20%;
+
+     }
+     .swiper-pagination .swiper-button-prev {
+        color: #ababab !important;
+     }
+     .swipe-h{
+        font-weight: 400;
+        font-size: 50px;
+        color: teal;
+        font-family: "Outfit", sans-serif;
+        position: absolute;
+        top: 50px;
+     }
+     .card-list .card-item {
+        color: #fff;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 35px;
+        backdrop-filter: blur(30px);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        
+     }
+     .card-list .card-item  .user-images{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        border: 3px solid #fff;
+        padding: 4px;
+
+     }
+     .card-list .card-item  .user-role{
+        font-size: 1.15rem;
+        color: #e3e3e3;
+        font-weight:100;
+        margin: 14px 0 40px;
+     }
+    .swiper-slide .my-swiper-container{
+        width:100px !important;
+        flex-direction: row;
+        flex-shrink: 0;
+    }
+    .content1{
+        position: absolute;
+        left: 0px;
+    }
+    #home{
+        position: absolute;
+        top: 0px;
+        color: transparent;
+    }
+    #travels{
+        position: absolute;
+        top: 900px;
+        color: transparent;
+    }
+    #packages{
+        position: absolute;
+        top: 1500px;
+        color: transparent;
+    }
+    #aboutus{
+        position: absolute;
+        top: 3870px;
+        color: transparent;
+    }
+    #contact{
+        position: absolute;
+        top: 4500px;
+        color: transparent;
+    }
+    form{
+        background: transparent;
+    }
+    .loc5{
+        position: absolute;
+        top: 4500px;
+        
+    }
+    .contact-container{
+        position: absolute;
+        left:150px;
+        height: 100vh;
+        display: flex;
+        
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .contact-left{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+
+    }
+    .contact-left-title h4{
+        font-weight: 600;
+        color: blueviolet;
+        font-size: 40px;
+        margin-bottom: 5px;
+
+    }
+    .contact-left-title hr{
+        border: none;
+        width: 120px;
+        height: 5px;
+        background-color: blueviolet;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .contact-inputs{
+        width: 400px;
+        height: 50px;
+        border: none;
+        outline: none;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #666;
+        border-radius: 50px;
+    }
+    .contact-left textarea{
+        height: 140px;
+        padding-top: 15px;
+        border-radius: 20px;
+    }
+    .contact-inputs:focus{
+        border: 2px solid #666;
+    }
+    .contact-inputs::placeholder{
+        color: #414040;
+    }
+    .contact-left button{
+        display: flex;
+        align-items: center;
+        padding: 15px 30px;
+        font-size: 16px;
+        color: aliceblue;
+        gap: 10px;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(45deg, #ff3075,#6ad6f7);
+        cursor: pointer;
+    }
+    .contact-right{
+        position: relative;
+        right:30px;
+    }
+    .footer__container {
+        display: grid;
+        gap: 4rem 2rem;
+      }
+      
+      .footer__col:first-child {
+        max-width: 300px;
+      }
+      
+      .footer__logo {
+        margin-bottom: 1rem;
+      }
+      
+      .footer__col p {
+        color: var(--text-light);
+      }
+      
+      .footer__col h4 {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+      
+      .footer__links {
+        list-style: none;
+        display: grid;
+        gap: 1rem;
+      }
+      
+      .footer__links a {
+        color: var(--text-light);
+      }
+      
+      .footer__links a:hover {
+        color: var(--secondary-color);
+      }
+      
+      .footer__bar {
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: var(--text-light);
+        text-align: center;
+      }
+      
+      @media (width > 768px) {
+        .nav__logo {
+          flex: 1;
+        }
+      
+        .nav__links {
+          position: static;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          background-color: transparent;
+        }
+      
+        .nav__menu__btn {
+          display: none;
+        }
+      
+        .nav__action__btn {
+          justify-content: flex-end;
+          display: flex;
+          flex: 1;
+        }
+      
+        .header__container {
+          height: calc(100% - 10rem);
+        }
+      
+        .header__socials {
+          display: flex;
+        }
+      
+        .about__container {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          gap: 10rem 2rem;
+        }
+      
+        .about__image-1 {
+          grid-area: 1/2/2/3;
+        }
+      
+        .about__image-3 {
+          grid-area: 3/2/4/3;
+        }
+      
+        .about__content {
+          margin-left: 6rem;
+        }
+      
+        .footer__container {
+          grid-template-columns: 2fr 1fr 1fr;
+        }
+      }
+      footer{
+        position: relative;
+        bottom: -4000px;
+        align-items: center;
+        padding-bottom: 80px;
+        color: #a0a0a0;
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img class="logo-i" src="assets/images/shared/site/logo.png">    <p class="logo-n">Sothern|safari</p> </div>
+        <ul class="sidebar">
+            <li onclick="hidesidebar()"><a class="shov" href="#"><i class='bx bx-x'></i></a></br></li>
+            <li><a class="shov" href="#">Home</a></br></li>
+            <li><a class="shov" href="#">states</a></br></li>
+            <li><a class="shov" href="#">packages</a></br></li>
+            <li><a class="shov" href="#">about us</a></br></li>
+            <li><a class="shov" href="#">Contact Us</a></br></li>
+            <li><button class="btn"><i class='bx bxs-plane-alt'></i>Bookings</button></br></li>
+            <li><button id="icon" onclick="window.location.href='login.html'"></br><a class="shov" href="#">Login/Register</a></i></button></li>
+        </ul>
+        <ul>
+            <li class="hideOnMobile"><a href="#home">Home</a></li>
+            <li class="hideOnMobile"><a href="#travels">Travels</a></li>
+            <li class="hideOnMobile"><a href="#packages">packages</a></li>
+            <li class="hideOnMobile"><a href="#aboutus">about us</a></li>
+            <li class="hideOnMobile"><a href="#contact">Contact Us</a></li>
+            <li class="hideOnMobile"><button class="btn"><i class='bx bxs-plane-alt'></i>Bookings</button></li>
+            <li id="welcomeItem" class="hideOnMobile" hidden><span id="welcomeMessage" aria-live="polite" style="color:#fff;font-size:14px;"></span></li>
+            <li class="hideOnMobile"><button id="icon" onclick="window.location.href='login.html'"><i class='bx bxs-user-circle'></i></button></li>
+            <li class="menu" onclick="showsidebar()"><a href="#"><i class='bx bx-list-ul' height="30"></i></a></li>
+        </ul>
+    </nav>
+    <div class="content1">
+        <section id="home">
+            <h4>home</h4>
+        </section>
+        <section id="travels">
+            <h4>travels</h4>
+        </section>
+        <section id="packages">
+            <h4>packages</h4>
+        </section>
+        <section id="aboutus">
+            <h4>aboutus</h4>
+        </section>
+        <section id="contact">
+            <h4>contact</h4>
+        </section>
+
+    </div>
+    <div class="main ">
+    <div class="container " >
+        
+        <div class="video-container">
+        <video id="videoPlayer" autoplay  muted plays-inline height="900px"  width="100%">
+            <source src="assets/videos/home/vedio1.mp4" type="video/mp4">
+        </video>
+        </div>
+        <div class="content">
+            <h1 class="font">Beautiful <br> Places to Explore</h1>
+            <p>Ensuring that the Indian Heritage sites sustain their outstanding universal value is an increasingly challenging mission.</p>
+            <form class="form1">
+                <input type="text" placeholder="State Name" class="input">
+                <button type="submit" class="btn" id="r">Search</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <div class="container1 reveal">
+        <h1 id="loc4">states</h1>
+        <div class="ul" id="c" ></div>
+        <div class="slide">
+            <div class="item" style="background-image: url('https://images.unsplash.com/photo-1606141836992-bfcb00c776c2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-color: red;">
+                <div class="content">
+                    <div id="loc" class="name">Karnataka</div>
+                    <div id="loc" class="des">A blend of heritage and modernity, Karnataka boasts stunning temples, diverse wildlife, and vibrant cities like Bengaluru</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/karnataka/index.html'">Explore</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('https://images.unsplash.com/photo-1534531409543-069f6204c5b4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWElMjBmb3Jlc3R8ZW58MHx8MHx8fDA%3D'); background-color: blue;">
+                <div id="loc" class="content">
+                    <div id="loc" class="name">AndhraPradesh</div>
+                    <div id="loc" class="des">Andhra Pradesh features a mix of bustling cities, serene beaches, and historical temples, offering a rich cultural experience.</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/andhra-pradesh/index.html'">Explore</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('https://images.unsplash.com/photo-1712422813106-dfb845a8a7ed?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');background-color: lightblue;">
+                <div class="content">
+                    <div id="loc" class="name">Telangana</div>
+                    <div id="loc" class="des">Known for its historic sites, Telangana offers a blend of ancient forts, temples, and the rapidly growing city of Hyderabad</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/telangana/index.html'">Explore</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('https://images.unsplash.com/photo-1705681412983-0c5ba2374913?q=80&w=1542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-color: green;">
+                <div class="content">
+                    <div id="loc" class="name"> TamilNadu</div>
+                    <div id="loc" class="des">Home to magnificent Dravidian architecture, Tamil Nadu is a cultural haven with ancient temples, classical arts, and scenic hill stations.</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/tamil-nadu/index.html'">Explore</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('https://images.pexels.com/photos/12308295/pexels-photo-12308295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-color: greenyellow;">
+                <div class="content">
+                    <div id="loc" class="name">Kerala</div>
+                    <div id="loc" class="des">Known as "God's Own Country," Kerala offers lush green landscapes, serene backwaters, and rich cultural traditions</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/kerala/index.html'">Explore</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('https://images.unsplash.com/photo-1607577070449-531c2296916c?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-color: greenyellow;">
+                <div class="content">
+                    <div id="loc" class="name">Goa</div>
+                    <div id="loc" class="des">Famous for its sandy beaches, vibrant nightlife, and Portuguese heritage, Goa is a tropical paradise.</div>
+                    <button id="loc" class="b1" onclick="window.location.href='states/goa/index.html'">Explore</button>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="button ">
+            <button  class="prev"><i id="h" class='bx bxs-chevron-left'></i></button>
+            <button id="h" class="next"><i id="h" class='bx bxs-chevron-right' ></i></button>
+
+        </div>
+        
+        </div>
+        <div class="loc3 ">
+        <div class="parent reveal" >
+        <h1 class="loc2">popular packages</h1>
+        <div class="ul"></div>
+        <div class="wrapper">
+        <div class="card package-kerala block" id="block">
+            <div class="info"><h4>Majestic Kerala Tour</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    Immerse yourself in Kerala's natural beauty, the tranquil backwaters of Alleppey to the misty hills of Munnar. Experience traditional houseboat cruises, spice plantations, and vibrant local culture.
+                </div>
+                <div class="info-li">
+                <li >Houseboat stay in Alleppey</li >
+                <li >Tea gardens in Munnar</li>
+                <li >Kathakali dance performance</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 6 Days / 5 Nights</li >
+                    <li type="none">Starting Price: ₹20,000</li>
+                </div>
+                <Button class="info-button"> View Details</Button>
+            </div>
+        </div></br></br></br>
+        <div class="card package-goa block" id="block" >
+            <div class="info"><h4>Goa Beach Bliss</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    Unwind on the sun-kissed beaches of Goa, where the golden sands meet the azure sea. Enjoy beach parties, water sports, and a taste of Goan culture and cuisine.
+                </div>
+                <div class="info-li">
+                <li >Stay at a beach-front resort</li >
+                <li >Visit to Calangute and Baga Beaches</li>
+                <li >Historical tour of Old Goa</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 4 Days / 3 Nights</li >
+                    <li type="none">Starting Price: ₹15,000</li>
+                </div>
+                <Button class="info-button"> View Details</Button>
+            </div>
+            
+        </div></br></br></br>
+        <div class="card package-tamil-nadu block" id="block">
+            <div class="info"><h4>Tamil Nadu Temple Trail</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    Explore the grandeur of Tamil Nadu’s ancient temples,a masterpiece of Dravidian architecture. Discover the spiritual and cultural heritage of the region, from Madurai to Rameswaram
+                </div>
+                <div class="info-li">
+                <li >Meenakshi Temple in Madurai</li >
+                <li >Brihadeeswarar Temple in Thanjavur</li>
+                <li >Rameswaram pilgrimage</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 7 Days / 6 Nights</li >
+                    <li type="none">Starting Price: ₹25,000</li>
+                </div>
+                <Button class="info-button"> View Details</Button>
+            </div>
+            
+        </div></br></br></br>
+        <div class="card package-karnataka block" id="block">
+            <div class="info"><h4>Heritage Karnataka Expedition</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    Step back in time with a journey through Karnataka’s historical wonders. From the ancient ruins of Hampi to the royal heritage of Mysore, experience the state’s rich history and culture.
+                </div>
+                <div class="info-li">
+                <li >Hampi’s UNESCO World Heritage Sites</li >
+                <li >Mysore Palace and Chamundi Hil</li>
+                <li >Coffee plantations in Coorg</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 5 Days / 4 Nights</li >
+                    <li type="none">Starting Price: ₹18,000</li>
+                </div>
+                <Button class="info-button"> View Details</Button>
+            </div>
+        </div></br></br></br>
+        <div class="card package-andhra-pradesh block" id="block">
+            <div class="info"><h4>Andhra Pradesh Scenic Sojourn</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    Discover the diverse landscapes of Andhra Pradesh, from the picturesque Araku Valley to the bustling city of Hyderabad. Explore caves, beaches, and temples along the way.
+                </div>
+                <div class="info-li">
+                <li >Araku Valley and Borra Caves</li >
+                <li >Tirupati Temple visit</li>
+                <li >Hyderabad city tour</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 6 Days / 5 Nights</li >
+                    <li type="none">Starting Price: ₹22,000</li>
+                </div>
+                <Button class="info-button"> View Details</Button>
+            </div>
+        </div></br></br></br>
+        <div class="card package-south-india block" id="block">
+            <div class="info"><h4>Best of South India</h4>
+                <div class="info-sep1"></div>
+                <div class="info-des">
+                    One relaxed journey through South India's coast, hill country, heritage, and local culture.
+                </div>
+                <div class="info-li">
+                <li>Goa beaches and historic quarters</li>
+                <li>Kerala backwaters and hill country</li>
+                <li>Karnataka heritage and Tamil Nadu temples</li>
+                </div>
+                <div class="info-sep"></div>
+                <div  class="info-det">
+                    <li type="none">Duration: 10 days / 9 nights</li>
+                    <li type="none">Starting from: ₹35,000 per person</li>
+                </div>
+                <button class="info-button" type="button" aria-label="View Best of South India package details">View details</button>
+            </div>
+        </div>
+        </div>
+        </div>
+    
+        </div>
+        </div>
+    <div class="contain1 ">
+        <div class="swipe-h">About us</div>
+
+    <div class="contain swiper my-swiper-container">
+        <div class="slider-wrapper">
+            <div class="card-list swiper-wrapper ">
+                <div class="card-item swiper-slide ">
+                    <img src="assets/images/shared/site/j.jpeg" alt="photos" class="user-images">
+                    <h4 class="user-name">Sekhar</h4>
+                    <div class="user-role">Developer</div>
+                </div>
+                <div class="card-item swiper-slide">
+                    <img src="assets/images/shared/site/j.jpeg" alt="photos" class="user-images">
+                    <h4 class="user-name">Ramtej</h4>
+                    <div class="user-role">Developer</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+    </div>
+    </div>
+    <div class="loc5">
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h4>Get in touch</h4>
+                <hr>
+
+            </div>
+            <input type="hidden" name="access_key" value="c573b0ff-8d85-42ac-a45c-7b5fd6c01e2a">
+            <input type="text" name="name" placeholder="your name" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="your email" class="contact-inputs" required>
+            <textarea name="message" placeholder="your message" class="contact-inputs" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="contact-right">
+                <img src="assets/images/shared/site/contactus.png" alt="image" height="800px" width="800px">
+        </div>
+
+    </div>
+    </div>
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <div class="logo footer__logo">
+              <a href="#"><div class="logo"><img class="logo-i" src="assets/images/shared/site/logo.png"><p class="logo-n">Sothern|safari</p> </div></a>
+            </div>
+            <p>
+              Get out there & discover your next slope, mountains & destination!
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>More on The Blog</h4>
+            <ul class="footer__links">
+              <li><a href="#">About MNTN</a></li>
+              <li><a href="#">Contributors & Writers</a></li>
+              <li><a href="#">Write For Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>More on MNTN</h4>
+            <ul class="footer__links">
+              <li><a href="#">The Team</a></li>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bar">
+          Copyright © 2024 southsafari. All rights reserved.
+        </div>
+      </footer>
+    <script>
+        function showsidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hidesidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+        let next = document.querySelector('.next')
+        let prev = document.querySelector('.prev')
+
+        next.addEventListener('click',function(){
+            let item = document.querySelectorAll('.item')
+            document.querySelector('.slide').appendChild(item[0])
+        })
+        prev.addEventListener('click',function(){
+            let item = document.querySelectorAll('.item')
+            document.querySelector('.slide').prepend(item[item.length - 1])
+        })
+
+        const stateCarousel = document.querySelector('.container1');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let stateAutoScroll;
+
+        function startStateAutoScroll() {
+            if (!prefersReducedMotion && !stateAutoScroll) {
+                stateAutoScroll = window.setInterval(() => next.click(), 2000);
+            }
+        }
+
+        function stopStateAutoScroll() {
+            window.clearInterval(stateAutoScroll);
+            stateAutoScroll = undefined;
+        }
+
+        stateCarousel.addEventListener('mouseenter', stopStateAutoScroll);
+        stateCarousel.addEventListener('mouseleave', startStateAutoScroll);
+        stateCarousel.addEventListener('focusin', stopStateAutoScroll);
+        stateCarousel.addEventListener('focusout', event => {
+            if (!stateCarousel.contains(event.relatedTarget)) {
+                startStateAutoScroll();
+            }
+        });
+        startStateAutoScroll();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script1.js"></script>  
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videos = ['assets/videos/home/vedio1.mp4', 'assets/videos/home/mno.mp4']; // Array of video sources
+        let currentVideoIndex = 0;
+
+        // Listen for the 'ended' event
+        videoPlayer.addEventListener('ended', () => {
+            currentVideoIndex++;
+            if (currentVideoIndex < videos.length) {
+                videoPlayer.src = videos[currentVideoIndex];
+                videoPlayer.play();
+            } else {
+                if (currentVideoIndex = 1) {
+                    currentVideoIndex--;
+                    videoPlayer.src = videos[currentVideoIndex];
+                videoPlayer.play();
+                }
+            }
+        });
+    </script> 
+    <script>
+        function restrictZoom() {
+            let maxAllowedWidth = 1500;
+            if (window.innerWidth > maxAllowedWidth) {
+                document.body.style.transform = 'scale(' + (maxAllowedWidth / window.innerWidth) + ')';
+                document.body.style.transformOrigin = 'top left';
+            } else {
+                document.body.style.transform = 'none';
+            }
+        }
+    
+        window.addEventListener('resize', restrictZoom);
+        window.addEventListener('load', restrictZoom);
+    </script>
+    <script>
+        try {
+            const savedName = localStorage.getItem('southernSafariName');
+            if (savedName) {
+                document.getElementById('welcomeMessage').textContent = 'Welcome, ' + savedName;
+                document.getElementById('welcomeItem').hidden = false;
+            }
+        } catch (error) {
+            console.error('Could not read the saved traveler name.', error);
+        }
+    </script>
+</body>
+</html>

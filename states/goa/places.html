@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Goa Tourist Places</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Outfit", sans-serif;
+      }
+      .all {
+        background-image: linear-gradient(rgba(52, 49, 65, 0.65));
+        background-color: #16161f;
+      }
+
+      body {
+        position: absolute;
+        lett: 0px;
+        height: 8000px;
+        max-width: 1500px;
+        max-height: 5000px;
+        margin: 0 auto;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      nav {
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.705);
+        z-index: 3;
+        backdrop-filter: blur(10px);
+      }
+      .form1 {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        border-radius: 40px;
+        padding: 10px;
+
+        margin-left: 10px;
+        background: white;
+        top: 10px;
+        width: 400px;
+        height: 20px;
+        left: 50%;
+      }
+      .r {
+        border-radius: 40px;
+        font-size: 14px;
+        height: 30px;
+        width: 90px;
+        padding: 5px 5px;
+        padding-bottom: 10px;
+        position: relative;
+        left: 0px;
+        border: none;
+        background-color: #f5168d;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+        color: #eee;
+      }
+      .r:hover {
+        background: linear-gradient(40deg, #e7e5e5, #292929);
+      }
+      .input {
+        border: none;
+        outline: 0;
+        width: 100%;
+        font-size: 16px;
+        padding-left: 10px;
+      }
+      .place {
+        color: #ddd;
+        border: black solid 0px;
+        width: 1000px;
+        padding: 10px;
+        margin: 100px;
+        border-radius: 12px;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.8s;
+      }
+      .place:hover {
+        transform: translateX(-20px);
+      }
+      .more-btn {
+        height: 30px;
+        width: 100px;
+        position: relative;
+        left: 510px;
+        top: -10px;
+
+        border-radius: 40px;
+        border: white;
+        cursor: pointer;
+        background: transparent;
+        transition: opacity 1.2s, transform 0.8s;
+        box-shadow: 3px 10px 13px rgba(0, 0, 0, 0.5);
+        color: #eee;
+      }
+
+      .more-btn:hover {
+        color: rgb(95, 94, 94);
+        opacity: 1;
+        transform: translateY(-8px);
+        box-shadow: 3px 0px 10px 5px #070707b2;
+      }
+      img {
+        border-radius: 10px;
+        margin-bottom: 2opx;
+      }
+      h2 {
+        position: relative;
+        left: 300px;
+        top: 60px;
+        margin-left: 20px;
+      }
+      .des0 {
+        margin-left: 20px;
+        position: relative;
+        left: 300px;
+        top: 80px;
+      }
+      .icon {
+        width: 200px;
+        float: left;
+        height: 70px;
+      }
+      .logo {
+        color: rgb(10, 243, 45);
+        font-size: 35px;
+        font-family: arial;
+        padding-left: 20px;
+        float: left;
+        padding-top: 10px;
+      }
+      .details {
+        display: none;
+      }
+      #Thiruvananthapuram .more-btn {
+        position: relative;
+        left: 520px;
+      }
+      #Pathanamthitta .more-btn {
+        position: relative;
+        left: 520px;
+      }
+      .menu {
+        width: 400px;
+        float: left;
+        height: 70px;
+      }
+      ul {
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul li {
+        list-style: none;
+        margin-left: 200px;
+        margin-top: 18px;
+        font-size: 16px;
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        font-family: Arial;
+        font-size: large;
+        font-weight: bold;
+        transition: 0.4s ease-in-out;
+      }
+      ul li a:hover {
+        color: #f5168d;
+      }
+
+      .explor {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Outfit", sans-serif;
+        gap: 20px;
+        position: relative;
+        left: -150px;
+      }
+      .name {
+        font-size: 80px;
+        color: rgba(153, 229, 31, 0.95);
+        font-weight: 600;
+        align-items: center;
+        top: 250px;
+        bottom: 250px;
+        align-content: center;
+        padding-bottom: 270px;
+        padding-top: 250px;
+        font-family: "Outfit", sans-serif;
+        float: inline-start;
+      }
+
+      main {
+        position: relative;
+        top: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+      main {
+        width: 100%;
+
+        background-position: center;
+        background-size: cover;
+      }
+      h1 {
+        font-size: 60px;
+        color: rgba(241, 245, 240, 0.719);
+        font-family: Arial;
+        float: center;
+        position: relative;
+        right: 10%;
+        margin-left: 200px;
+      }
+      hr {
+        width: 400px;
+        height: 2.5px;
+        border: none;
+        background-color: rgba(241, 245, 240, 0.719);
+        position: relative;
+        left: -330px;
+        border-radius: 3px;
+      }
+
+      footer {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: absolute;
+        bottom: 10px;
+        width: 97%;
+        height: 20px;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+      #footer {
+        position: relative;
+        padding: 30px 0 25px 0;
+        text-align: center;
+        width: 100%;
+        background: #222222;
+      }
+
+      #footer .social {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      #footer a {
+        color: #00ced1;
+      }
+
+      #footer a:hover {
+        color: #ffffff;
+      }
+
+      #footer .social a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+
+        padding: 5px 10px;
+        background: #00ced1;
+        color: #222222;
+        font-size: 20px;
+        border-radius: 30px;
+      }
+
+      #footer .social a:hover {
+        background: #ffffff;
+        color: #00ced1;
+      }
+
+      #footer ul {
+        margin: 0 0 10px 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      #footer ul li {
+        font-family: "Roboto Slab", serif;
+        font-weight: 400;
+        display: inline-block;
+        list-style-type: none;
+        padding: 0 10px 0 3px;
+        line-height: 15px;
+        border-right: 1px solid #ffffff;
+      }
+
+      #footer ul li:last-child {
+        border-right: none;
+      }
+
+      #footer p {
+        margin: 0;
+        font-size: 18px;
+      }
+      .social-media {
+        margin-top: 10px;
+      }
+
+      .social-media a {
+        color: white;
+        margin: 0 10px;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      .social-media a:hover {
+        color: #ddd;
+      }
+      .image-container {
+        position: absolute;
+        top: 60px;
+        left: 100px;
+        width: 80vw;
+        height: 60vh;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 400%; /* Adjust width based on the number of images */
+      }
+
+      .image-slider img {
+        width: 80vw;
+        height: 60vh;
+        object-fit: cover;
+      }
+
+      .controls {
+        position: absolute;
+        top: 300px;
+        left: 110px;
+        height: 60px;
+        width: 79.3%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .prev,
+      .next {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 15px;
+        pointer-events: auto;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background: #2b2e334f;
+        color: #6292f8;
+      }
+
+      .pagination {
+        position: absolute;
+        top: 450px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        background-color: grey;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dot.active {
+        background: #6292f8;
+        transform: scale(1.6);
+      }
+      .caption {
+        text-align: center;
+        justify-items: center;
+        color: #ffffff;
+        margin: 20px 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      .caption h2 {
+        position: absolute;
+        top: 200px;
+        left: 25%;
+        font-weight: 780;
+        font-size: 70px;
+        margin: 10px 0;
+        background: linear-gradient(
+          90deg,
+          #e63897,
+          #6292f8
+        ); /* Gradient background */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+        animation: glowing 1.5s infinite alternate;
+      }
+      .caption h2::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Behind the text */
+        background: linear-gradient(
+          90deg,
+          #e63897,
+          #6292f8
+        ); /* Outline color gradient */
+        border-radius: 5px; /* Rounded edges for the outline */
+        filter: blur(4px); /* Soft blur for the outline */
+        transform: scale(1.1); /* Slightly larger than the text */
+      }
+      .caption p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 10px auto;
+        line-height: 1.5;
+      }
+
+      .line {
+        width: 80%;
+        height: 2px;
+        background-color: #f05454;
+        margin: 10px auto;
+        position: relative;
+        display: inline-block;
+      }
+
+      .line::before,
+      .line::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: #f05454;
+        top: 0;
+      }
+
+      .line::before {
+        left: -60px;
+      }
+
+      .line::after {
+        right: -60px;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/place-weather.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">BACK</a></li>
+        <form class="form1" onsubmit="return false;">
+          <input
+            type="text"
+            placeholder="State Name"
+            class="input"
+            id="searchInput"
+          />
+          <button type="button" class="btn r" id="searchButton">Search</button>
+        </form>
+        <!--
+   
+          <li><a href="#Thrissur">Thrissur</a></li>
+          <li><a href="#Palakkad">Palakkad</a></li>
+          <li><a href="#Malappuram">Malappuram</a></li>
+          <li><a href="#Kozhikode">Kozhikode</a></li>
+          <li><a href="#Wayanad">Wayanad</a></li>
+          <li><a href="#Kannur">Kannur</a></li>
+          <li><a href="#Kasargod">Kasargod</a></li>-->
+      </ul>
+    </nav>
+
+    <div class="all">
+      <div class="image-container">
+        <div class="image-slider" id="slider">
+          <img src="../../assets/images/shared/places/photo1.jpg" alt="Image 1" />
+          <img src="../../assets/images/shared/places/photo2.jpg" alt="Image 2" />
+          <img src="../../assets/images/shared/places/photo3.jpg" alt="Image 3" />
+          <img src="../../assets/images/shared/places/a.jpeg" alt="Image 4" />
+        </div>
+      </div>
+      <div class="caption">
+        <h2>Explore the Beauty <br />of goa</h2>
+      </div>
+      <div class="controls">
+        <button class="prev" onclick="prevSlide()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next" onclick="nextSlide()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="pagination" id="pagination">
+        <div class="dot" onclick="showSlide(0)"></div>
+        <div class="dot" onclick="showSlide(1)"></div>
+        <div class="dot" onclick="showSlide(2)"></div>
+        <div class="dot" onclick="showSlide(3)"></div>
+      </div>
+
+      <main>
+        <div class="caption">
+          <div class="line"></div>
+          <h1>Tourist Places in Goa</h1>
+
+          <p>
+            Immerse yourself in the serene landscapes, vibrant culture, and rich
+            traditions.
+          </p>
+          <div class="line"></div>
+        </div>
+        <section id="places">
+          <div class="place" id="Beaches">
+            <h2>Beaches</h2>
+            <p class="des0">Baga Beach : Famous for water sports, beach parties, and vibrant nightlife.
+            </p>
+            <img
+              src="assets/images/baga1.jpg"
+              alt="Beaches"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Beaches-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Beaches-details">
+              <p>
+                Calangute Beach: The largest beach in North Goa, ideal for sunbathing and water activities.
+                 Anjuna Beach: Known for its hippie culture, flea markets, and stunning sunsets.
+                 Palolem Beach: A serene beach in South Goa with calm waters and picturesque views.
+                 Arambol Beach: Popular for its laid-back vibe, paragliding, and drum circles.
+              </p>
+            </div>
+          </div>
+
+          <div class="place" id="Historical and Cultural Sites">
+            <h2>Historical and Cultural Sites</h2>
+            <p class="des0">
+              Basilica of Bom Jesus : A UNESCO World Heritage Site, this church holds the relics of St. Francis Xavier.
+            </p>
+            <img
+              src="assets/images/jesus.jpeg"
+              alt="Historical and Cultural Sites"
+              width="300"
+              height="200"
+            />
+            <button onclick="toggleDetails('Historical and Cultural Sites-details')" class="more-btn">
+              More Info
+            </button>
+            <div class="details" id="Historical and Cultural Sites-details">
+              <p>
+                Se Cathedral*: One of the largest churches in Asia, famous for its Portuguese-Manueline architectural style.
+                Chapora Fort: A historical fort offering panoramic views of the Chapora River and the Arabian Sea.
+                Aguada Fort: A 17th-century Portuguese fort, now a lighthouse, offering breathtaking views of the coastline.
+                Reis Magos Fort: A restored Portuguese fort with an adjacent church and museum.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="Natural Attractions">
+            <h2>Natural Attractions</h2>
+            <p class="des0">
+              Dudhsagar Waterfalls: A stunning four-tiered waterfall located on the Mandovi River, best viewed during the monsoon.
+            </p>
+            <img
+              src="assets/images/Dudhsagar.jpg"
+              alt="Natural Attractions"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Natural Attractions-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Natural Attractions-details">
+              <p>
+                Salim Ali Bird Sanctuary : A haven for bird watchers, located on the island of Chorao.
+               Spice Plantations : Explore Goa’s lush spice farms where you can learn about traditional agriculture.
+              Divar Island : A quiet retreat from the usual Goa bustle, accessible by ferry.
+
+              </p>
+            </div>
+          </div>
+          <div class="place" id="Flea Markets and Shopping">
+            <h2>Flea Markets and Shopping</h2>
+            <p class="des0">
+              Anjuna Flea Market : Famous for handmade jewelry, clothing, and local crafts.
+            </p>
+            <img
+              src="assets/images/flemarket.jpeg"
+              alt="Flea Markets and Shopping"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Flea Markets and Shopping-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Flea Markets and Shopping-details">
+              <p>
+                Mapusa Market : A bustling market where locals sell fresh produce, spices, and handicrafts.
+                Saturday Night Market (Arpora) : A lively night market with food stalls, live music, and eclectic shopping.
+
+              </p>
+            </div>
+          </div>
+          <div class="place" id="Nightlife and Casinos">
+            <h2>Nightlife and Casinos</h2>
+            <p class="des0">
+              Tito’s Lane (Baga Beach) : Known for its lively bars, nightclubs, and beach shacks.
+            </p>
+            <img
+              src="assets/images/tito.jpg"
+              alt="Nightlife and Casinos"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Nightlife and Casinos-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Nightlife and Casinos-details">
+              <p>
+                Club Cubana : A popular nightclub in Arpora, famous for its open-air dance floor.
+                Deltin Royale Casino : One of the largest floating casinos in Goa, offering gambling and live entertainment.
+              </p>
+            </div>
+          </div>
+          <div class="place" id="Wildlife and Adventure">
+             <h2>Wildlife and Adventure </h2>
+            <p class="des0">
+              Bhagwan Mahavir Wildlife Sanctuary : Home to a variety of flora and fauna, including leopards and deer.
+            </p>
+            <img
+              src="assets/images/wild.jpg"
+              alt="Wildlife and Adventure"
+              width="300"
+              height="200"
+            />
+            <button
+              onclick="toggleDetails('Wildlife and Adventure-details')"
+              class="more-btn"
+            >
+              More Info
+            </button>
+            <div class="details" id="Wildlife and Adventure-details">
+              <p>
+                Mollem National Park : Famous for jungle safaris and trekking.
+                Water Sports : Popular activities include jet skiing, parasailing, windsurfing,
+                 and scuba diving at beaches like Baga, Calangute, and Vagator.
+               </p>
+            </div>
+          </div>
+          <div class="place" id="Old Goa">
+            <h2>Old Goa</h2>
+            <p class="des0">
+              Church of St. Cajetan : Modeled after St. Peter’s Basilica in Vatican City, </br>
+              this is one of the lesser-known gems of Old Goa
+               </p>
+            <img
+              src="assets/images/vk.jpeg"
+              alt="Old Goa"
+              width="300"
+              height="200"
+            />
+            <button onclick="toggleDetails('Old Goa-details')" class="more-btn">
+              More Info
+            </button>
+            <div class="details" id="Old Goa-details">
+              <p>
+                Fontainhas : A heritage Latin quarter in Panaji with vibrant houses and Portuguese influence.
+              </p>
+            </div>
+          </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+
+    <script>
+      function restrictZoom() {
+        let maxAllowedWidth = 1500;
+        if (window.innerWidth > maxAllowedWidth) {
+          document.body.style.transform =
+            "scale(" + maxAllowedWidth / window.innerWidth + ")";
+          document.body.style.transformOrigin = "top left";
+        } else {
+          document.body.style.transform = "none";
+        }
+      }
+
+      window.addEventListener("resize", restrictZoom);
+      window.addEventListener("load", restrictZoom);
+    </script>
+    <script>
+      function searchPlace() {
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        console.log("Search input:", input);
+        var cards = document.querySelectorAll(".place");
+        console.log("Number of place cards:", cards.length);
+
+        let found = false;
+        cards.forEach(function (card) {
+          var cardText = card.querySelector("h2").textContent.toLowerCase();
+          console.log("Checking card:", cardText);
+
+          if (cardText.includes(input)) {
+            console.log("Match found:", cardText);
+
+            card.scrollIntoView({ behavior: "smooth" });
+
+            card.style.backgroundColor = "#1c1c29d7";
+
+            found = true;
+          } else {
+            card.style.backgroundColor = "";
+          }
+        });
+
+        if (!found) {
+          console.log("No match found");
+          alert("Place not found!");
+        }
+      }
+
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", searchPlace);
+    </script>
+    <script>
+      let slider = document.getElementById("slider");
+      let slides = slider.getElementsByTagName("img");
+      let index = 0;
+      const totalSlides = slides.length;
+      let dots = document.getElementsByClassName("dot");
+
+      function showSlide(i) {
+        index = (i + totalSlides) % totalSlides;
+        slider.style.transform = "translateX(" + -index * 80 + "vw)";
+        updateDots();
+      }
+
+      function nextSlide() {
+        showSlide(index + 1);
+      }
+
+      function prevSlide() {
+        showSlide(index - 1);
+      }
+      function updateDots() {
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove("active");
+        }
+        dots[index].classList.add("active");
+      }
+
+      setInterval(nextSlide, 3000);
+      updateDots(); // Initialize the first dot as active
+    </script>
+    <script src="../../script.js"></script>
+    <script src="../../assets/js/place-weather.js"></script>
+</body>
+</html>

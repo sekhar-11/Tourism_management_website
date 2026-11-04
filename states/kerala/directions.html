@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Directions to Kerala</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #map { 
+            height: 300px; 
+            width: 300px; 
+            transition: all 0.3s ease; /* Smooth transition */
+            position: relative; /* Normal position */
+            z-index: 1;
+        } 
+        #map-container { 
+            margin-top: 20px; 
+            text-align: center; 
+            position: relative;
+        }
+        #map:hover { 
+            height: 500px; /* Increased size on hover */
+            width: 500px; /* Increased size on hover */
+            position: absolute; /* Absolute to avoid layout disturbance */
+            z-index: 1000; /* Ensures it's on top of other elements */
+        }
+        button { 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+        }
+        button i { 
+            margin-right: 10px; 
+        } /* Space for the icon */
+    </style>
+</head>
+<body>
+
+    <h1>Map Directions to Kerala</h1>
+    <button id="show-map-btn">
+        
+        Show Map
+    </button>
+
+    <div id="map-container">
+        <div id="map" style="display: none;"></div>
+    </div>
+
+    <!-- Leaflet and Routing libraries -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome icon library -->
+
+    <script>
+        document.getElementById('show-map-btn').addEventListener('click', function() {
+            const button = this;
+            button.disabled = true; // Disable button to prevent multiple clicks
+            document.getElementById('map').style.display = 'block';
+
+            // Initialize the map centered at Kerala
+            const map = L.map('map').setView([10.8505, 76.2711], 10);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Check for geolocation support
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    // Create markers for the user's location and Kerala
+                    const userMarker = L.marker([userLat, userLng]).addTo(map).bindPopup('You are here!').openPopup();
+                    const keralaMarker = L.marker([10.8505, 76.2711]).addTo(map).bindPopup('Kerala').openPopup();
+
+                    // Set up routing
+                    const routingControl = L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLat, userLng),
+                            L.latLng(10.8505, 76.2711) // Kerala coordinates
+                        ],
+                        routeWhileDragging: true,
+                        router: L.Routing.osrmv1({
+                            serviceUrl: 'https://router.project-osrm.org/route/v1'
+                        })
+                    }).addTo(map);
+
+                    // Listen for events to handle routing results
+                    routingControl.on('routesfound', function(e) {
+                        console.log(`Found routes: ${e.routes}`);
+                        map.fitBounds(e.routes[0].bounds); // Fit map to show the route
+                    });
+
+                    routingControl.on('routingerror', function(e) {
+                        console.error('Routing error:', e);
+                        alert('An error occurred while finding the route.');
+                        button.disabled = false; // Re-enable button if routing fails
+                    });
+
+                    routingControl.on('routefound', function(e) {
+                        if (e.routes.length === 0) {
+                            alert('No route found between the selected points.');
+                        }
+                    });
+
+                    // Fit the map bounds to show both markers
+                    map.fitBounds([userMarker.getLatLng(), keralaMarker.getLatLng()]);
+                }, function() {
+                    alert('Unable to retrieve your location. Please ensure location services are enabled.');
+                    button.disabled = false; // Re-enable button if location fails
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+                button.disabled = false; // Re-enable button if geolocation is unsupported
+            }
+        });
+    </script>
+</body>
+</html>

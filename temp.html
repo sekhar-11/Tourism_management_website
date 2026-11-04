@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking - Southern Safari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            
+            border-radius: 10px;
+            
+        }
+        
+        .image-container img {
+            max-width: 100px;
+            margin: 0 10px;
+            display: block;
+            border-radius: 10px;
+            height: 200px;
+            filter: drop-shadow(0 4px 10px rgba(255, 165, 0, 0.6)) 
+            drop-shadow(0 4px 10px rgba(255, 192, 203, 0.6));
+        }
+        .flight {
+        }
+        .bus {
+        }
+        .train {
+        }
+        .booking-container {
+            position: relative;
+            right: -300px;
+            background-color: rgba(31, 31, 31, 0.9);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #bbb;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        .result, .booking-message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="image-container">
+        <img class="flight" src="assets/images/shared/transport/flight.png" alt="Travel Image 1">
+        <img class="bus" src="assets/images/shared/transport/bus.png" alt="Travel Image 2">
+        <img class="train" src="assets/images/shared/transport/train.png" alt="Travel Image 3">
+    </div>
+
+    <div class="booking-container">
+        <h2>Book Your Travel</h2>
+
+        <label for="destination">Select Destination:</label>
+        <select id="destination">
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Coimbatore">Coimbatore</option>
+        </select>
+        
+        <label for="transport">Select Transport Medium:</label>
+        <select id="transport">
+            <option value="bus" data-cost="500">Bus - ₹500/person</option>
+            <option value="train" data-cost="300">Train - ₹300/person</option>
+            <option value="flight" data-cost="2000">Flight - ₹2000/person</option>
+        </select>
+
+        <label for="persons">Number of Persons:</label>
+        <input type="number" id="persons" min="1" value="1">
+
+        <button onclick="calculateCost()">Calculate Cost</button>
+
+        <div class="result" id="result"></div>
+
+        <button onclick="bookNow()">Book Now</button>
+
+        <div class="booking-message" id="bookingMessage"></div>
+    </div>
+</div>
+
+<script>
+    function calculateCost() {
+        var transportElement = document.getElementById('transport');
+        var transportCost = parseInt(transportElement.options[transportElement.selectedIndex].getAttribute('data-cost'));
+        var persons = parseInt(document.getElementById('persons').value);
+        var totalCost = transportCost * persons;
+        
+        document.getElementById('result').innerHTML = "Total Cost: ₹" + totalCost;
+    }
+
+    function bookNow() {
+        var destination = document.getElementById('destination').value;
+        var bookingMessage = "Booking Done for " + destination;
+        document.getElementById('bookingMessage').innerHTML = bookingMessage;
+        alert("Tickets successfully booked for " + destination + "!");
+    }
+</script>
+</body>
+</html>

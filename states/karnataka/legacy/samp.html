@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Scrolling Gallery with Pagination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .image-container {
+            width: 100vw;
+            height: 60vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* Adjust width based on the number of images */
+        }
+
+        .image-slider img {
+            width: 100vw; 
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 15px;
+            pointer-events: auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: #f05454;
+        }
+
+        .pagination {
+            position: absolute;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: grey;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #f05454;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <div class="image-slider" id="slider">
+        <img src="../../../assets/images/shared/places/photo1.jpg" alt="Image 1">
+        <img src="../../../assets/images/shared/places/photo2.jpg" alt="Image 2">
+        <img src="../../../assets/images/shared/places/photo3.jpg" alt="Image 3">
+        <img src="../../../assets/images/shared/places/a.jpeg" alt="Image 4">
+    </div>
+</div>
+
+<div class="controls">
+    <button class="prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button class="next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<div class="pagination" id="pagination">
+    <div class="dot" onclick="showSlide(0)"></div>
+    <div class="dot" onclick="showSlide(1)"></div>
+    <div class="dot" onclick="showSlide(2)"></div>
+    <div class="dot" onclick="showSlide(3)"></div>
+</div>
+
+<script>
+    let slider = document.getElementById('slider');
+    let slides = slider.getElementsByTagName('img');
+    let index = 0;
+    const totalSlides = slides.length;
+    let dots = document.getElementsByClassName('dot');
+
+    function showSlide(i) {
+        index = (i + totalSlides) % totalSlides;
+        slider.style.transform = 'translateX(' + (-index * 100) + 'vw)';
+        updateDots();
+    }
+
+    function nextSlide() {
+        showSlide(index + 1);
+    }
+
+    function prevSlide() {
+        showSlide(index - 1);
+    }
+
+    function updateDots() {
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove('active');
+        }
+        dots[index].classList.add('active');
+    }
+
+    setInterval(nextSlide, 3000);
+    updateDots();  // Initialize the first dot as active
+</script>
+</body>
+</html>

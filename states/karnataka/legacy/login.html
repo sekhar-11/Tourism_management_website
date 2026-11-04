@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width", initial-scale="1.0">
+     <title>login page</title>
+     <link rel="stylesheet" href="styles.css">    
+	 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+		body{
+			background-image: url('https://images.unsplash.com/photo-1622779100968-f38ad2954a0d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			font-family: "poppins", sans-scrif;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: rgb(63, 60, 60);
+
+			
+			background-position: center;
+			
+		}
+		h{
+		font-size: 25px;
+		justify-content: center;
+		align-items: center;
+		right: 50px;
+		}
+		.container{
+			position: relative;
+			height: 500px;
+			width: 420px;
+			background: trasparent;
+			border: 2px solid rgba(225, 225, 225, .2);
+			color: white;
+			padding: 30px 40px ;
+			border-radius:12px;
+			backdrop-filter: blur(20px);
+			border: 3px; 
+			overflow: hidden;
+		}
+		.container .lore{
+		
+		margin: 35px auto;
+		width: 220px;
+		text-align: center;
+		border-radius: 30px;
+		box-shadow: 0 0 20px 9px #ff61241f;
+		position: relative;
+		overflow: hidden;
+		}
+		.toggle1,.toggle{
+		position: relative;
+		top: 50%;
+		cursor: pointer;
+		padding: 10px 30px;
+		background:transparent;
+		position: relative;
+		border:2px solid transparent;
+		outline: none;
+		z-index: 2;
+		}
+		.toggle:hover{
+			color: white;
+		}
+		.toggle1:hover{
+			color: white;
+		}
+		#bn{
+			top:0;
+			left: 0;
+			position: absolute;
+			width: 110px;
+			height: 100%;
+			background: linear-gradient(to right, blue, lightblue);
+			border-radius: 30px;
+			transition: 0.5s;
+			z-index: 1;
+			}
+		
+		.container .input-box{
+			position: relative;
+			width: 100%;
+			height: 50px;
+			background: transparent;
+			margin: 30px 0;
+			padding: 5px;
+			overflow:hidden;
+		}
+		.container .input-box input{
+		font-size:15px;
+			width: 100%;
+			height: 45px;
+			padding: 20px 45px 20px 20px;
+			background: rgb(255,255,255,0.2);
+			border: none;
+			outline: none;
+			border: 1px soild white;
+			border-radius: 40px;
+			
+		}
+		.input-box input::placeholder{
+			color: #fff
+		}
+		.input-box i{
+		position:absolute;
+		right:20px;
+		top: 30%;
+		translate: -50%;
+		}
+		.container .remember{
+			display: flex;
+			justify-content: space-between;
+			font-size: 14px;
+			margin: -15px 0 15px;			
+			}
+		.remember label input{
+		accent-color: #fff;
+		margin-right: 3px;
+		
+		}
+		.remember a{
+		color: #fff;
+		text-decoration: none;
+		
+		}
+		.remember a:hover{
+			text-decoration: underline;
+		}
+		.container .btn{
+			height: 45px;
+			width: 100%;
+			background:white;
+			border:none;
+			outline:none;
+			border-radius:40px;
+			box-shadow: 0 0 10px rgb(0 ,0 ,0 ,.1);
+			cursor: pointer;
+			font-size: 16px;
+			color: #333;
+			font-weight: 600;
+		}
+		.container .register{
+		font-size: 14.5px;
+		text-align:center;
+		margin:20px 0 15px;
+		}
+		.register p a{
+		color: #fff;
+		text-decoration: none;
+		}
+		.register a:hover{
+			text-decoration: underline;
+		}
+		.fr{
+			
+			top: 120px;
+			left: 50%;
+			transform: translatex(70px);
+			position: absolute;
+			width: 280px;
+			transition: .5s;
+		}
+		#login{
+		left: 0;
+		z-index: 3;
+		}
+		#register{
+		left: 100%;
+		z-index: 3;
+		}
+		.back{
+		text-align: center;
+		margin: 10px;
+		width: 90px;
+		border-radius: 30px;
+		box-shadow: 0 0 20px 9px #ff61241f;
+		position: relative;
+		font-size: 20px;
+		top: -250px;
+		left: -280px;
+		}
+		.bbtn{
+			border: 0;
+			outline: 0;
+			background-color: transparent;
+			padding:10px;
+		}
+		.bbtn:hover{
+			color: white;
+		}
+		
+	 </style>
+     
+	 </head>   
+	 <body>
+	    <div class="back">
+			<button class="bbtn"  onclick="window.location.href='home.html'">Back</button>
+		</div>
+        <div class="container">
+		 
+			
+			<div class="lore">
+			<button class="toggle1" onclick="login()">Login</button><button class="toggle" onclick="register()">register</button>
+			<div id="bn"></div>
+			</div>
+			<form  id="login" class="fr">
+				<h>login</h>
+			<div class="input-box">
+				<input type="text" placeholder="user name">
+				<i class='bx bxs-user-circle'></i>
+			</div>
+			<div class="input-box">
+				<input type="password" placeholder="password">
+				<i class='bx bxs-lock-alt' ></i>
+			</div>
+			<div class="remember">
+				<label><input type="checkbox" >remember</label>
+				<a href="#">forget password</a>
+			</div>
+			<div>
+				<button type="submit" class="btn">login</button>
+			</div>
+			<div class="register">
+				<p>don't have an account? <a href="#">register</a></p>
+				
+			</div>
+		 </form >
+		 <form id="register" class="fr">
+			<h>register</h>
+			<div class="input-box">
+				<input type="text" placeholder="user name">
+				<i class='bx bxs-user-circle'></i>
+			</div>
+			<div class="input-box">
+				<input type="email" placeholder="email id">
+				<i class='bx bxs-user-circle'></i>
+			</div>
+			<div class="input-box">
+				<input type="password" placeholder="password">
+				<i class='bx bxs-lock-alt' ></i>
+			</div>
+			<div class="remember">
+				<label><input type="checkbox" >i agree terms and condition</label>
+				
+			</div>
+			<div>
+				<button type="submit" class="btn">register</button>
+			</div>
+			
+				
+			</div>
+		 </form>
+		</div>
+		<script>
+		var x = document.getElementById("login");
+		var y = document.getElementById("register");
+		var z = document.getElementById("bn");
+		function register(){
+			x.style.left = "-400px";
+			y.style.left = "10px";
+			z.style.left = "110px";
+		}
+		function login(){
+			x.style.left = "10px";
+			y.style.left = "400px";
+			z.style.left = "0";
+		}
+		</script>
+</body>
+</html>

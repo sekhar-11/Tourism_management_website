@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kerala Trip Packages</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      /* General Styling */
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1c1c1c;
+        color: #ffffff;
+      }
+
+      header {
+        background-image: url("assets/images/thanjavur.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 60px 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      header h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      header p {
+        font-size: 20px;
+      }
+
+      /* Predefined Packages */
+      #predefined-packages {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .package-card {
+        background-color: #333333;
+        border-radius: 12px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        text-align: left;
+        color: #ffffff;
+      }
+
+      .package-card h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .package-card ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .package-card ul li {
+        margin-bottom: 5px;
+      }
+
+      .package-card p {
+        font-size: 18px;
+        color: #e0e0e0;
+      }
+
+      .package-card button {
+        background-color: #ff0099;
+        color: #1c1c1c;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .package-card button:hover {
+        background-color: #ff66b2;
+      }
+
+      /* Custom Package Builder */
+      #custom-package {
+        background-color: #333333;
+        margin-top: 40px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        color: #ffffff;
+      }
+
+      #custom-package-form {
+        text-align: left;
+      }
+
+      #places {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background-color: #1c1c1c;
+        color: #ffffff;
+        border: 1px solid #faf6f8;
+      }
+
+      #total-price {
+        font-size: 22px;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      #map {
+        margin-top: 20px;
+        height: 300px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        border: 1px solid #585758;
+      }
+
+      footer {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .grid-container {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        header h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Explore tamil nadu</h1>
+      <p>Find the best package or customize your own journey!</p>
+    </header>
+
+    <main>
+      <!-- Predefined Packages Section -->
+      <section id="predefined-packages">
+        <h2>Predefined Packages</h2>
+        <div class="grid-container">
+          <div class="package-card">
+            <h3><i class="fas fa-umbrella-beach"></i> 3-Day Tour</h3>
+            <ul>
+              <li>chennai</li>
+              <li>mahabalipuram</li>
+            </ul>
+            <p><strong>Price:</strong> ₹15,000</p>
+            <button>Book Now</button>
+          </div>
+          <div class="package-card">
+            <h3><i class="fas fa-tree"></i> 5-Day Tour</h3>
+            <ul>
+              <li>kanchipuram</li>
+              <li>madurai</li>
+            </ul>
+            <p><strong>Price:</strong> ₹25,000</p>
+            <button>Book Now</button>
+          </div>
+          <div class="package-card">
+            <h3><i class="fas fa-tree"></i> 5-Day Tour</h3>
+            <ul>
+              <li>rameswaram</li>
+              <li> kanyakumari</li>
+            </ul>
+            <p><strong>Price:</strong> ₹25,000</p>
+            <button>Book Now</button>
+          </div>
+          <div class="package-card">
+            <h3><i class="fas fa-tree"></i> 5-Day Tour</h3>
+            <ul>
+              <li>ooty</li>
+              <li>kodaikanal</li>
+              <li>pondicherry</li>
+            </ul>
+            <p><strong>Price:</strong> ₹25,000</p>
+            <button>Book Now</button>
+          </div>
+          <div class="package-card">
+            <h3><i class="fas fa-tree"></i> 20-Days Tour</h3>
+            <ul>
+              <li>total tamil nadu tour</li>
+            </ul>
+            <p><strong>Price:</strong> ₹1,000,000</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Package Builder Section -->
+      <section id="custom-package">
+        <h2>Customize Your Package</h2>
+        <form id="custom-package-form">
+          <label for="places">Choose Your Destinations:</label>
+          <select id="places" multiple>
+            <option value="chennai" data-price="5000">chennai</option>
+            <option value="mahabalipuram" data-price="12000">mahabalipuram</option>
+            <option value="kanchipuram" data-price="10000">kanchipuram</option>
+            <option value="madurai" data-price="10000">
+              madurai
+            </option>
+            <option value="rameswaram" data-price="9000">chirameswaramkmagalur</option>
+            <option value="kanyakumari" data-price="kanyakumari">
+              gokarna
+            </option>
+            <option value="ooty" data-price="7500">ooty</option>
+          </select>
+          <option value="pondicherry" data-price="7500">pondicherry</option>
+        </select>
+        <option value="kodaikanal" data-price="7500">kodaikanal</option>
+      </select>
+
+          <div id="selected-places"></div>
+
+          <p>Total Price: ₹<span id="total-price">0</span></p>
+          <button
+            type="button"
+            onclick="calculatePrice()"
+            style="background-color: #ff66b2"
+          >
+            Create Package
+          </button>
+        </form>
+
+        <div id="map">
+          <div id="mapid" style="height: 100%; width: 100%"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Explore tamil nadu - The Land of Wonders</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      function calculatePrice() {
+        const places = document.querySelectorAll("#places option:checked");
+        let totalPrice = 0;
+        const selectedPlacesContainer =
+          document.getElementById("selected-places");
+        selectedPlacesContainer.innerHTML = "";
+
+        places.forEach((place) => {
+          const price = parseInt(place.getAttribute("data-price"));
+          totalPrice += price;
+
+          const placeName = place.textContent;
+          const placeElement = document.createElement("p");
+          placeElement.textContent = `${placeName} - ₹${price}`;
+          selectedPlacesContainer.appendChild(placeElement);
+        });
+
+        document.getElementById("total-price").textContent = totalPrice;
+      }
+
+      // Initialize the map
+      var map = L.map("mapid").setView([10.8505, 76.2711], 7); // Coordinates of Kerala
+
+      // Add a tile layer (OpenStreetMap)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Add marker functionality when destinations are selected
+      document.getElementById("places").addEventListener("change", function () {
+        map.eachLayer(function (layer) {
+          if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
+          }
+        });
+
+        document
+          .querySelectorAll("#places option:checked")
+          .forEach((option) => {
+            const place = option.value;
+            let coordinates;
+
+            switch (place) {
+              case "chennai":
+                coordinates = [13.0843, 80.2705];
+                break;
+              case "mahabalipuram":
+                coordinates = [12.6208, 80.1945];
+                break;
+              case "kanyakumari":
+                coordinates = [8.0844, 77.5495];
+                break;
+              case "rameswaram":
+                coordinates = [9.2876, 79.3129];
+                break;
+              case "kanchipuram":
+                coordinates = [12.8373, 79.7042];
+                break;
+              case "madurai":
+                coordinates = [9.9252, 78.1198];
+                break;
+              case "ooty":
+                coordinates = [11.4102, 76.6950];
+                break;
+                case "koadaikanal":
+                coordinates = [10.2391, 77.4977];
+                break;
+                case "pondicherry":
+                coordinates = [11.9416, 79.8083];
+                break;
+            }
+
+            if (coordinates) {
+              L.marker(coordinates)
+                .addTo(map)
+                .bindPopup(`<b>${place}</b>`)
+                .openPopup();
+            }
+          });
+      });
+    </script>
+</body>
+</html>
